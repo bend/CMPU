@@ -1,6 +1,9 @@
-Dependencies:
+###Dependencies:
+
 - id3lib
-TODO:
+
+###TODO:
+
 - Add detection if no title/artist
 - Add pattern for title rename
 - Add duplicate detector
