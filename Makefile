@@ -6,6 +6,9 @@ OBJECTS=$(SOURCES:.cpp=.o)
 CC=g++
 all: $(EXEC)
 
+debug:
+	$(CC) -o $@ $(OBJECTS) $(LDFLAGS) -g
+
 $(EXEC): $(OBJECTS)
 	$(CC) -o $@ $(OBJECTS) $(LDFLAGS)
 
