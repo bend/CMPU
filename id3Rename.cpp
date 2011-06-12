@@ -18,8 +18,6 @@
 
 #include <id3/tag.h>
 #include <iostream>
-#include <string.h>
-#include <stdio.h>
 
 using namespace std;
 
@@ -32,8 +30,7 @@ int main(int argc, char** argv){
 	ID3_Frame* myFrame = NULL;
 	char *newName= new char[2048];
 	myFrame= myTag.Find(ID3FID_LEADARTIST);
-	if(myFrame!=0)
-	{
+	if(myFrame!=0){
 		char* artist = new char[1024];
 		myFrame->Field(ID3FN_TEXT).Get(artist,1024);
 		strncat(newName,artist,strlen(artist));
@@ -42,8 +39,7 @@ int main(int argc, char** argv){
 
 	myFrame= myTag.Find(ID3FID_TITLE);
 	
-	if(myFrame!=0)
-	{
+	if(myFrame!=0){
 		char* title = new char[1024];
 		myFrame->Field(ID3FN_TEXT).Get(title,1024);
 		strncat(newName,title,strlen(title));
