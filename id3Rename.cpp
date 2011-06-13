@@ -41,7 +41,7 @@ int Id3Rename::appendExtension(char* song, char* newName){
 	int period = tsong.find_last_of(".");
 	string ext = tsong.substr(period);
 	if(strncat(newName, ext.c_str(), MAX_EXT) < 0){
-		cerr<<"strncat fail in appendExtensio"<<endl;
+		cerr<<"strncat fail in appendExtension"<<endl;
 		return FAILURE;
 	}
 	return SUCCESS;
@@ -76,24 +76,28 @@ int Id3Rename::apply(){
 	
 	myTag.Link(this->song,ID3TT_ALL);
 	myFrame= myTag.Find(ID3FID_LEADARTIST);
-	
 	if(myFrame!=0){
 		myFrame->Field(ID3FN_TEXT).Get(artist,MAX_ARTIST);
 		if(strncat(newName,artist,MAX_ARTIST) < 0){
 			cerr<<"strncat fail in apply"<<endl;
 			return FAILURE;
 		}
-		if(strncat(newName," - ",3) < 0){
-			cerr<<"strncat fail in apply"<<endl;
-			return FAILURE;
-		}
-	}
+	} 
 
 	myFrame= myTag.Find(ID3FID_TITLE);
 	
 	if(myFrame!=0){
 		myFrame->Field(ID3FN_TEXT).Get(title,MAX_TITLE);
+		if(strlen(newName) == 0){
+			if(strncat(newName," - ",3) < 0){
+				cerr<<"strncat fail in apply"<<endl;
+				return FAILURE;
+			}
+		}
 		strncat(newName,title,strlen(title));
+	}else{
+		cerr<<"Could not rename file: title not found"<<endl;
+		return FAILURE;
 	}
 	if(this->appendExtension(this->song, newName) < 0)
 		return FAILURE;

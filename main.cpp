@@ -22,6 +22,6 @@ int main(int argc, char** argv){
 	if(argc<2)
 		return 0;
 	Id3Rename id(argv[1]);
-	id.apply();
+	cout<<id.apply()<<endl;
 	return 1;
 }
