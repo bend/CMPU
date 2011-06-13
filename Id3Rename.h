@@ -17,6 +17,8 @@
  */
 #include <id3/tag.h>
 #include <iostream>
+
+#include "Defines.h"
 using namespace std;
 
 class Id3Rename{
@@ -26,6 +28,8 @@ class Id3Rename{
 		int apply();
 	private:
 		int mv(char* oldName, char* newName);
+		int parsePath(char* file, char* path);
+		int appendExtension(char* song, char* newName);
 		char* song;
 
 };

@@ -1,4 +1,4 @@
-CFLAGS+=-W -Wall 
+CFLAGS+=-W -Wall -Werror -pedantic
 LDFLAGS+=-lid3
 EXEC=id3Rename
 SOURCES=$(wildcard *.cpp)

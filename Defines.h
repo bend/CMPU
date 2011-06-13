@@ -1,12 +1,12 @@
 /*
  * =====================================================================================
  *
- *       Filename:  main.cpp
+ *       Filename:  Defines.h
  *
- *    Description:  
+ *    Description:  Defines used in id3Rename
  *
  *        Version:  1.0
- *        Created:  12.06.2011 23:50:12
+ *        Created:  13.06.2011 11:41:44
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -16,12 +16,9 @@
  * =====================================================================================
  */
 
-#include "Id3Rename.h"
-
-int main(int argc, char** argv){
-	if(argc<2)
-		return 0;
-	Id3Rename id(argv[1]);
-	id.apply();
-	return 1;
-}
+#define 	MAX_PATH	1024
+#define 	MAX_NAME	1024
+#define		MAX_ALL		2048
+#define 	MAX_ARTIST 	1024
+#define 	MAX_TITLE	1024
+#define 	MAX_EXT		5
