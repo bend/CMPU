@@ -8,7 +8,7 @@
  *        Version:  1.0
  *        Created:  12.06.2011 23:50:12
  *       Revision:  none
- *       Compiler:  gcc
+ *       Compiler:  g++
  *
  *         Author:  Ben D. (BD), dbapps2@gmail.com
  *        Company:  dbapps

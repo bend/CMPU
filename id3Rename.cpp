@@ -8,10 +8,9 @@
  *        Version:  1.0
  *        Created:  11.06.2011 19:58:37
  *       Revision:  none
- *       Compiler:  gcc
+ *       Compiler:  g++
  *
  *         Author:  Ben D. (BD), dbapps2@gmail.com
- *        Company:  dbapps
  *
  * =====================================================================================
  */
@@ -24,17 +23,17 @@ Id3Rename::Id3Rename(char* song){
 
 int Id3Rename::parsePath(char* file, char* path){
 	if(realpath(file, path) == NULL){
-		cerr<<"realPath fail in parsePath";
-		return -1;
+		cerr<<"realPath fail in parsePath"<<endl;
+		return FAILURE;
 	}
 	string fTemp(path);
 	int i = fTemp.find_last_of("/");
 	string pathTemp = fTemp.substr(0,i+1);
 	if(strncpy(path, pathTemp.c_str(),MAX_PATH) < 0){
-		cerr<<"strncpy fail in parsePath";
-		return -1;
+		cerr<<"strncpy fail in parsePath"<<endl;
+		return FAILURE;
 	}
-	return 1;
+	return SUCCESS;
 }
 
 int Id3Rename::appendExtension(char* song, char* newName){
@@ -43,55 +42,62 @@ int Id3Rename::appendExtension(char* song, char* newName){
 	string ext = tsong.substr(period);
 	if(strncat(newName, ext.c_str(), MAX_EXT) < 0){
 		cerr<<"strncat fail in appendExtensio"<<endl;
-		return -1;
+		return FAILURE;
 	}
-	return 0;
+	return SUCCESS;
 }
 
 int Id3Rename::mv(char* oldName, char* newName){
 	char resolvedPath[MAX_PATH];
 	char completeName[MAX_ALL];
-	if(parsePath(oldName, resolvedPath)<0)
-		return -1;
+	if(this->parsePath(oldName, resolvedPath)<0)
+		return FAILURE;
 	if(strncpy(completeName, resolvedPath,MAX_PATH) <0){
-		cerr<<"strncpy fail in mv";
-		return -1;
+		cerr<<"strncpy fail in mv"<<endl;
+		return FAILURE;
 	}
 	if(strncat(completeName, newName,MAX_NAME) < 0){
-		cerr<<"strncat fail in mv";
-		return -1;
+		cerr<<"strncat fail in mv"<<endl;
+		return FAILURE;
 	}
 	if(rename(oldName, completeName) < 0){
-		cerr<<"rename fail in mv";
-		return -1;
+		cerr<<"rename fail in mv"<<endl;
+		return FAILURE;
 	}
-	return 1;
+	return SUCCESS;
 }
 
 int Id3Rename::apply(){
 	ID3_Tag myTag;
-
-	myTag.Link(this->song,ID3TT_ALL);
 	ID3_Frame* myFrame = NULL;
-	
 	char *newName= new char[MAX_ALL];
+	char* title = new char[MAX_TITLE];
+	char* artist = new char[MAX_ARTIST];
+	
+	myTag.Link(this->song,ID3TT_ALL);
 	myFrame= myTag.Find(ID3FID_LEADARTIST);
 	
 	if(myFrame!=0){
-		char* artist = new char[MAX_ARTIST];
 		myFrame->Field(ID3FN_TEXT).Get(artist,MAX_ARTIST);
-		strncat(newName,artist,strlen(artist));
-		strncat(newName," - ",3);
+		if(strncat(newName,artist,MAX_ARTIST) < 0){
+			cerr<<"strncat fail in apply"<<endl;
+			return FAILURE;
+		}
+		if(strncat(newName," - ",3) < 0){
+			cerr<<"strncat fail in apply"<<endl;
+			return FAILURE;
+		}
 	}
 
 	myFrame= myTag.Find(ID3FID_TITLE);
 	
 	if(myFrame!=0){
-		char* title = new char[MAX_TITLE];
 		myFrame->Field(ID3FN_TEXT).Get(title,MAX_TITLE);
 		strncat(newName,title,strlen(title));
 	}
-	this->appendExtension(this->song, newName);
-	this->mv(this->song, newName);
-	return 1;
+	if(this->appendExtension(this->song, newName) < 0)
+		return FAILURE;
+	if(this->mv(this->song, newName) < 0)
+		return FAILURE;
+	return SUCCESS;
 }
