@@ -20,19 +20,10 @@
 #include "Pattern.h"
 #include "Defines.h"
 int main(int argc, char** argv){
-	char token[MAX_TOK];
 	if(argc<0)
 		return 0;
-	/*Id3Rename id(argv[1]);
-	cout<<id.apply()<<endl;
-	*/
-	cout<<argv[0]<<endl;
-
-	Pattern p("ART#TIT#GEN#YEAR#AZ#AAZEAZE");
-	p.parse();
-	while(p.next(token)!=EMPTY){
-		cout<<token<<endl;
-	}
-
+	Pattern *p = new Pattern("TIT#ART#TIT#YEAR#ALB");
+	Id3Rename id(argv[1], p);
+	id.apply();
 	return 1;
 }

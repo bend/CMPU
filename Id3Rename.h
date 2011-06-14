@@ -19,18 +19,30 @@
 using namespace std;
 
 #include "Defines.h"
+#include "Pattern.h"
 
 class Id3Rename{
 
 	public:
-		Id3Rename(char* song);
+		/* methods */
+		Id3Rename(char* song, Pattern* pattern);
 		int apply();
 	
 	private:
+		/* methods */
 		int mv(char* oldName, char* newName);
 		int parsePath(char* file, char* path);
-		int appendExtension(char* song, char* newName);
+		int appendDelimiter(char* newName);
+		int appendExtension(char* newName);
+		int appendArtist(char* newName);
+		int appendTitle(char* newName);
+		int appendAlbum(char* newName);
+		int appendYear(char* newName);
+
+		/* arguments */
 		char* song;
+		Pattern* pattern;
+		ID3_Tag myTag;
 
 };
 

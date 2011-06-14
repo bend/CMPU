@@ -22,7 +22,7 @@ class Pattern{
 	public:
 		Pattern(string pattern);
 		int parse();
-		int next(char* token);
+		int next(string* token);
 	private:
 		void tokenize(string str, string delimiters);
 		string pattern;

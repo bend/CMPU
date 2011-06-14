@@ -20,21 +20,19 @@ Pattern::Pattern(string pattern){
 
 int Pattern::parse(){
 	string delim(SEPARATOR);
-	if(this->pattern.find_first_of(delim) == string::npos )
+	if(this->pattern.find_first_of(delim) == string::npos ){
+		cerr<<"Invalid pattern"<<endl;
 		return FAILURE;
+	}
 	tokenize(this->pattern, delim);
 	it = tokens.begin();
 	return SUCCESS;
 }
 
-int Pattern::next(char* token){
+int Pattern::next(string *token){
 	if(it==tokens.end())
 		return EMPTY;
-	string s = *it;
-	if(strncpy(token,s.c_str(),MAX_TOK) < 0){
-		cerr<<"strncpy fail in Pattern::next"<<endl;
-		return FAILURE;
-	}
+	*token = *it;
 	++it;
 	return SUCCESS;
 }
