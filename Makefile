@@ -5,9 +5,8 @@ SOURCES=$(wildcard *.cpp)
 OBJECTS=$(SOURCES:.cpp=.o)
 CC=g++
 all: $(EXEC)
-
-debug:
-	$(CC) -o $@ $(OBJECTS) $(LDFLAGS) -g
+debug: CFLAGS= -Wall -W -DDEBUG -g
+debug: $(EXEC)
 
 $(EXEC): $(OBJECTS)
 	$(CC) -o $@ $(OBJECTS) $(LDFLAGS)
