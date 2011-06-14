@@ -1,18 +1,14 @@
-/*
- * =====================================================================================
+/**
  *
- *       Filename:  test.cpp
+ *       @file  id3Rename.h
  *
- *    Description: A music file renamer.
+ *      @brief   A music file renamer
  *
- *        Version:  1.0
- *        Created:  11.06.2011 19:58:37
- *       Revision:  none
- *       Compiler:  g++
+ *    @version  1.0
+ *       @date   12.06.2011 23:39:21
  *
- *         Author:  Ben D. (BD), dbapps2@gmail.com
+ *     @author  Ben D. (BD), dbapps2@gmail.com
  *
- * =====================================================================================
  */
 
 #include "Id3Rename.h"
@@ -23,14 +19,14 @@ Id3Rename::Id3Rename(char* song){
 
 int Id3Rename::parsePath(char* file, char* path){
 	if(realpath(file, path) == NULL){
-		cerr<<"realPath fail in parsePath"<<endl;
+		cerr<<"realPath fail in Id3Rename::parsePath"<<endl;
 		return FAILURE;
 	}
 	string fTemp(path);
 	int i = fTemp.find_last_of("/");
 	string pathTemp = fTemp.substr(0,i+1);
 	if(strncpy(path, pathTemp.c_str(),MAX_PATH) < 0){
-		cerr<<"strncpy fail in parsePath"<<endl;
+		cerr<<"strncpy fail in Id3Rename::parsePath"<<endl;
 		return FAILURE;
 	}
 	return SUCCESS;
@@ -41,7 +37,7 @@ int Id3Rename::appendExtension(char* song, char* newName){
 	int period = tsong.find_last_of(".");
 	string ext = tsong.substr(period);
 	if(strncat(newName, ext.c_str(), MAX_EXT) < 0){
-		cerr<<"strncat fail in appendExtension"<<endl;
+		cerr<<"strncat fail in Id3Rename::appendExtension"<<endl;
 		return FAILURE;
 	}
 	return SUCCESS;
@@ -53,15 +49,15 @@ int Id3Rename::mv(char* oldName, char* newName){
 	if(this->parsePath(oldName, resolvedPath)<0)
 		return FAILURE;
 	if(strncpy(completeName, resolvedPath,MAX_PATH) <0){
-		cerr<<"strncpy fail in mv"<<endl;
+		cerr<<"strncpy fail in Id3Rename::mv"<<endl;
 		return FAILURE;
 	}
 	if(strncat(completeName, newName,MAX_NAME) < 0){
-		cerr<<"strncat fail in mv"<<endl;
+		cerr<<"strncat fail in Id3Rename::mv"<<endl;
 		return FAILURE;
 	}
 	if(rename(oldName, completeName) < 0){
-		cerr<<"rename fail in mv"<<endl;
+		cerr<<"rename fail in Id3Rename::mv"<<endl;
 		return FAILURE;
 	}
 	return SUCCESS;
@@ -79,7 +75,7 @@ int Id3Rename::apply(){
 	if(myFrame!=0){
 		myFrame->Field(ID3FN_TEXT).Get(artist,MAX_ARTIST);
 		if(strncat(newName,artist,MAX_ARTIST) < 0){
-			cerr<<"strncat fail in apply"<<endl;
+			cerr<<"strncat fail in Id3Rename::apply"<<endl;
 			return FAILURE;
 		}
 	} 
@@ -90,7 +86,7 @@ int Id3Rename::apply(){
 		myFrame->Field(ID3FN_TEXT).Get(title,MAX_TITLE);
 		if(strlen(newName) == 0){
 			if(strncat(newName," - ",3) < 0){
-				cerr<<"strncat fail in apply"<<endl;
+				cerr<<"strncat fail in Id3Rename::apply"<<endl;
 				return FAILURE;
 			}
 		}

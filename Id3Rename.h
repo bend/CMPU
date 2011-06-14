@@ -1,40 +1,29 @@
-/*
- * =====================================================================================
+/**
  *
- *       Filename:  id3Rename.h
+ *       @file  id3Rename.h
  *
- *    Description:  A music file renamer
+ *      @brief   A music file renamer
  *
- *        Version:  1.0
- *        Created:  12.06.2011 23:39:21
- *       Revision:  none
- *       Compiler:  g++
+ *    @version  1.0
+ *       @date   12.06.2011 23:39:21
  *
- *         Author:  Ben D. (BD), dbapps2@gmail.com
+ *     @author  Ben D. (BD), dbapps2@gmail.com
  *
- * =====================================================================================
  */
+
+#ifndef _ID3RENAME_H_
+#define _ID3RENAME_H_
+
 #include <id3/tag.h>
 #include <iostream>
+using namespace std;
 
 #include "Defines.h"
-using namespace std;
 
 class Id3Rename{
 
 	public:
-
-		/** 
-		 * @brief Constructor for class Id3Rename
-		 * @param song the path to the song file
-		 *
-		 */
 		Id3Rename(char* song);
-
-		/**
-		 * @brief Applies the rename to the file given in constructor
-		 *
-		 */
 		int apply();
 	
 	private:
@@ -44,3 +33,5 @@ class Id3Rename{
 		char* song;
 
 };
+
+#endif
