@@ -20,8 +20,8 @@ Pattern::Pattern(string pattern){
 
 int Pattern::parse(){
 	string delim(SEPARATOR);
-	if(this->pattern.find_first_of(delim) == string::npos ){
-		cerr<<"Invalid pattern"<<endl;
+	if(this->pattern.length() == 0){
+		cerr<<"Error:Invalid pattern"<<endl;
 		return FAILURE;
 	}
 	tokenize(this->pattern, delim);
