@@ -48,7 +48,8 @@ int Id3Rename::apply(){
 			return FAILURE;
 		}
 	}
-	
+	if(strlen(newName) == 0)
+		return SUCCESS;
 	if(this->appendExtension(newName) < 0)
 		return FAILURE;
 	if(this->mv(this->song, newName) < 0)
