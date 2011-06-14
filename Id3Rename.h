@@ -18,8 +18,8 @@
 #include <iostream>
 using namespace std;
 
-#include "Defines.h"
-#include "Pattern.h"
+#include "defines.h"
+#include "pattern.h"
 
 class Id3Rename{
 

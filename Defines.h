@@ -1,19 +1,16 @@
-/*
- * =====================================================================================
+/**
  *
- *       Filename:  Defines.h
+ *       @file defines.h
  *
- *    Description:  Defines used in id3Rename and Pattern
+ *      @brief   defines file
  *
- *        Version:  1.0
- *        Created:  13.06.2011 11:41:44
- *       Revision:  none
- *       Compiler:  g++
+ *    @version  1.0
+ *       @date   12.06.2011 23:39:21
  *
- *         Author:  Ben D. (BD), dbapps2@gmail.com
+ *     @author  Ben D. (BD), dbapps2@gmail.com
  *
- * =====================================================================================
  */
+
 
 /* Id3Rename defines */
 #define 	MAX_PATH	1024

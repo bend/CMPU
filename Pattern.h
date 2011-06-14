@@ -1,6 +1,6 @@
 /**
  *
- *       @file  Pattern.h
+ *       @file  pattern.h
  *
  *      @brief  Pattern parser for id3Rename
  *
@@ -16,7 +16,7 @@
 #include <vector>
 using namespace std;
 
-#include "Defines.h"
+#include "defines.h"
 
 class Pattern{
 	public:

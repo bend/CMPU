@@ -1,24 +1,7 @@
-/*
- * =====================================================================================
- *
- *       Filename:  main.cpp
- *
- *    Description:  
- *
- *        Version:  1.0
- *        Created:  12.06.2011 23:50:12
- *       Revision:  none
- *       Compiler:  g++
- *
- *         Author:  Ben D. (BD), dbapps2@gmail.com
- *        Company:  dbapps
- *
- * =====================================================================================
- */
 
-#include "Id3Rename.h"
-#include "Pattern.h"
-#include "Defines.h"
+#include "id3Rename.h"
+#include "pattern.h"
+#include "defines.h"
 int main(int argc, char** argv){
 	if(argc<0)
 		return 0;

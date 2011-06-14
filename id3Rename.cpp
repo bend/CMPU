@@ -11,7 +11,7 @@
  *
  */
 
-#include "Id3Rename.h"
+#include "id3Rename.h"
 
 Id3Rename::Id3Rename(char* song, Pattern* pattern){
 	this->song = song;

@@ -1,6 +1,6 @@
 /**
  *
- *       @file  Pattern.cpp
+ *       @file  pattern.cpp
  *
  *      @brief  Pattern parser for id3Rename
  *
@@ -12,7 +12,7 @@
  */
 
 
-#include "Pattern.h"
+#include "pattern.h"
 
 Pattern::Pattern(string pattern){
 	this->pattern = pattern;
