@@ -51,7 +51,7 @@ int Id3Rename::apply(){
 			return FAILURE;
 		}
 	}
-	if(strlen(newName) == 0){
+	if(strlen(newName) == 0 || newName[0]==' '){
 		delete[] newName;
 		delete token;
 		return SUCCESS;
