@@ -37,6 +37,10 @@ int Pattern::next(string *token){
 	return SUCCESS;
 }
 
+void Pattern::reset(){
+	it = tokens.begin();
+}
+
 void Pattern::tokenize(string str, string delimiters ){
     string::size_type lastPos = str.find_first_not_of(delimiters, 0);
     string::size_type pos     = str.find_first_of(delimiters, lastPos);

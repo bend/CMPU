@@ -14,21 +14,23 @@
 #define _BROWSER_H_
 #include "defines.h"
 
+#include <sys/types.h> 
+#include <sys/stat.h>  
+#include <dirent.h>    
 #include <iostream>
 using namespace std;
 
 class Browser{
 	public:
 		Browser(string path);
-	protected:
-		/* methods */
 		int browse();
-		virtual int apply();
 	private:
 		/* methods */
-		int sbrowse(char* path);
-		int buildPath();
+		int sbrowse(string path);
+		virtual int apply(string path);
+		void buildPath(string path, string filename, string* res);
 		string path;
+		
 
 };
 

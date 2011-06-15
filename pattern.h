@@ -23,6 +23,7 @@ class Pattern{
 		Pattern(string pattern);
 		int parse();
 		int next(string* token);
+		void reset();
 	private:
 		void tokenize(string str, string delimiters);
 		string pattern;

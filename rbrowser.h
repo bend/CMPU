@@ -1,0 +1,29 @@
+/**
+ *
+ *       @file  test.h
+ *
+ *      @brief  
+ *
+ *    @version  1.0
+ *       @date  15.06.2011 16:02:58
+ *
+ *     @author  Ben D. (BD), dbapps2@gmail.com
+ *
+ */
+#ifndef _RBROWSER_H_
+#define _RBROWSER_H_
+#include "browser.h"
+#include "id3Rename.h"
+#include "pattern.h"
+#include <iostream>
+using namespace std;
+class RBrowser: public Browser{
+	public:
+		RBrowser(string test, Pattern* pattern);
+	private:
+		virtual int apply(string str);
+		Pattern* pattern;
+
+};
+
+#endif

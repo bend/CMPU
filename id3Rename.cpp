@@ -21,8 +21,7 @@ Id3Rename::Id3Rename(char* song, Pattern* pattern){
 
 
 int Id3Rename::apply(){
-	if(pattern->parse() == FAILURE)
-		return FAILURE;
+	this->pattern->reset();
 	char *newName= new char[MAX_ALL];
 	string *token = new string;
 	bool first = true;
