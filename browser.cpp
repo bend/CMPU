@@ -17,6 +17,8 @@ Browser::Browser(string path){
 	this->path = path;
 }
 
+Browser::~Browser(){}
+
 int Browser::browse(){
 	struct stat file_status;                                                             
 	if (stat(this->path.c_str(), &file_status) <0) {
@@ -39,7 +41,7 @@ int Browser::sbrowse(string path){
 	string dName;
 	if (dir != NULL) {                           
 		while ((ent = readdir (dir)) != NULL) {
-		dName = ent->d_name;
+			dName = ent->d_name;
 			buildPath(path, dName, newPath);
 			if (!strcmp(ent->d_name,".") ==0 && !strcmp(ent->d_name, "..") == 0 
 					&& (ent->d_name[0] != '.')) {   
@@ -49,11 +51,11 @@ int Browser::sbrowse(string path){
 				}else{
 					apply(*newPath);
 				}
-		
+
 			}
 		}
 	}
-	
+
 	return SUCCESS;
 }
 

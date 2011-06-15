@@ -26,6 +26,7 @@ class Id3Rename{
 	public:
 		/* methods */
 		Id3Rename(char* song, Pattern* pattern);
+		~Id3Rename();
 		int apply();
 	
 	private:

@@ -18,6 +18,8 @@ Pattern::Pattern(string pattern){
 	this->pattern = pattern;
 }
 
+Pattern::~Pattern(){}
+
 int Pattern::parse(){
 	string delim(SEPARATOR);
 	if(this->pattern.length() == 0){

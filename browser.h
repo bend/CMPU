@@ -23,6 +23,7 @@ using namespace std;
 class Browser{
 	public:
 		Browser(string path);
+		~Browser();
 		int browse();
 	private:
 		/* methods */

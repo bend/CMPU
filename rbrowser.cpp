@@ -13,12 +13,22 @@
 
 #include "rbrowser.h"
 
-RBrowser::RBrowser(string path, Pattern* pattern):Browser(path){
+RBrowser::RBrowser(string path, Pattern* pattern, set<string> *ext):Browser(path){
 	this->pattern = pattern;
+	this->ext = ext;
 }
 
+RBrowser::~RBrowser(){}
 
 int RBrowser::apply(string str){
-	Id3Rename r(const_cast<char*>(str.c_str()), this->pattern);
-	return r.apply();
+	int period = str.find_last_of(".");
+	string e = str.substr(period+1);
+	if(ext->find(e)!= ext->end()){
+		Id3Rename r(const_cast<char*>(str.c_str()), this->pattern);
+		return r.apply();
+	}
+	return SUCCESS;
 }
+
+
+

@@ -16,11 +16,13 @@
 Id3Rename::Id3Rename(char* song, Pattern* pattern){
 	this->song = song;
 	this->pattern = pattern;
-	this->myTag.Link(this->song,ID3TT_ALL);
 }
+
+Id3Rename::~Id3Rename(){}
 
 
 int Id3Rename::apply(){
+	this->myTag.Link(this->song,ID3TT_ALL);
 	this->pattern->reset();
 	char *newName= new char[MAX_ALL];
 	string *token = new string;

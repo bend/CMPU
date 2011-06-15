@@ -16,13 +16,16 @@
 #include "id3Rename.h"
 #include "pattern.h"
 #include <iostream>
+#include <set>
 using namespace std;
 class RBrowser: public Browser{
 	public:
-		RBrowser(string test, Pattern* pattern);
+		RBrowser(string test, Pattern* pattern, set<string> *vect);
+		~RBrowser();
 	private:
 		virtual int apply(string str);
 		Pattern* pattern;
+		set<string> *ext;
 
 };
 

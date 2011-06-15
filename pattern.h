@@ -21,6 +21,7 @@ using namespace std;
 class Pattern{
 	public:
 		Pattern(string pattern);
+		~Pattern();
 		int parse();
 		int next(string* token);
 		void reset();
