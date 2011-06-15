@@ -46,8 +46,12 @@ int Browser::sbrowse(string path){
 			if (!strcmp(ent->d_name,".") ==0 && !strcmp(ent->d_name, "..") == 0 
 					&& (ent->d_name[0] != '.')) {   
 				if (ent->d_type == DT_DIR ) {
-					if(	sbrowse(*newPath) ==  FAILURE)
+					if(	sbrowse(*newPath) ==  FAILURE){
+						free(dir);
+						free(ent);
+						delete newPath;
 						return FAILURE;
+					}
 				}else{
 					apply(*newPath);
 				}
@@ -55,7 +59,9 @@ int Browser::sbrowse(string path){
 			}
 		}
 	}
-
+	free(dir);
+	free(ent);
+	delete newPath;
 	return SUCCESS;
 }
 

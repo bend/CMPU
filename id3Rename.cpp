@@ -25,7 +25,7 @@ int Id3Rename::apply(){
 	this->myTag.Link(this->song,ID3TT_ALL);
 	this->pattern->reset();
 	char *newName= new char[MAX_ALL];
-	string *token = new string;
+	string *token = new string();
 	bool first = true;
 	while(pattern->next(token) != EMPTY){
 		if(!first)
@@ -46,15 +46,26 @@ int Id3Rename::apply(){
 				first = true;
 		}else{
 			cerr<<"Error: Pattern not found: "<<*token<<endl;
+			delete[] newName;
+			delete token;
 			return FAILURE;
 		}
 	}
-	if(strlen(newName) == 0)
+	if(strlen(newName) == 0){
+		delete[] newName;
+		delete token;
 		return SUCCESS;
-	if(this->appendExtension(newName) < 0)
+	}
+	if(this->appendExtension(newName) < 0){
+		delete[] newName;
+		delete token;
 		return FAILURE;
-	if(this->mv(this->song, newName) < 0)
+	}
+	if(this->mv(this->song, newName) < 0){
+		delete[] newName;
+		delete token;
 		return FAILURE;
+	}
 	return SUCCESS;
 }
 
