@@ -8,7 +8,7 @@ using namespace std;
 int main(int argc, char** argv){
 	if(argc<2)
 		return 0;
-	Pattern p("TIT#ART");
+	Pattern p("ART#TIT");
 	set<string> v;
 	v.insert("mp3");
 	p.parse();

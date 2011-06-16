@@ -25,8 +25,8 @@ int Id3Rename::apply(){
 	this->myTag.Link(this->song,ID3TT_ALL);
 	this->pattern->reset();
 	char *newName= new char[MAX_ALL];
-	string *token = new string();
 	bool first = true;
+	string *token = new string();
 	while(pattern->next(token) != EMPTY){
 		if(!first)
 			appendDelimiter(newName);
@@ -100,6 +100,13 @@ int Id3Rename::appendExtension(char* newName){
 	return SUCCESS;
 }
 
+int Id3Rename::renameIfExist(char* path){
+	/* TODO */
+	/* WARNING Extension must split from the name */
+	cout<<path<<endl;
+	return SUCCESS;
+}
+
 int Id3Rename::mv(char* oldName, char* newName){
 	char resolvedPath[MAX_PATH];
 	char completeName[MAX_ALL];
@@ -113,6 +120,8 @@ int Id3Rename::mv(char* oldName, char* newName){
 		cerr<<"strncat fail in Id3Rename::mv"<<endl;
 		return FAILURE;
 	}
+	if(renameIfExist(completeName) == FAILURE)
+		return FAILURE;
 	if(rename(oldName, completeName) < 0){
 		cerr<<"rename fail in Id3Rename::mv"<<endl;
 		return FAILURE;

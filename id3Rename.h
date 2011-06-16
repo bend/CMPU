@@ -16,6 +16,7 @@
 
 #include <id3/tag.h>
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 #include "defines.h"
@@ -31,6 +32,7 @@ class Id3Rename{
 	
 	private:
 		/* methods */
+		int renameIfExist(char* path);
 		int mv(char* oldName, char* newName);
 		int parsePath(char* file, char* path);
 		int appendDelimiter(char* newName);
