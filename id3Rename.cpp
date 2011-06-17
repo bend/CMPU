@@ -101,9 +101,29 @@ int Id3Rename::appendExtension(char* newName){
 }
 
 int Id3Rename::renameIfExist(char* path){
-	/* TODO */
-	/* WARNING Extension must split from the name */
-	cout<<path<<endl;
+	fstream myFile;
+	myFile.open (path,ios_base::in);
+	/* file already exist, rename it */
+	if(myFile){
+		int i = 1;
+		string tsong = path;
+		string newName;
+		int period = tsong.find_last_of(".");
+		string name = tsong.substr(0,period);
+		string ext = tsong.substr(period);
+		while(myFile){
+			stringstream oss;
+			oss <<  name << '(' << i << ')'<<ext;
+			newName = oss.str();
+			myFile.close();
+			myFile.open(newName.c_str());
+			i++;
+		}
+		if(strncpy(path,newName.c_str(),MAX_PATH) < 0){
+			cerr<<"strncpy fail in Id3Rename::renameIfExist"<<endl;
+			return FAILURE;
+		}
+	}
 	return SUCCESS;
 }
 

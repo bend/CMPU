@@ -17,6 +17,8 @@
 #include <id3/tag.h>
 #include <iostream>
 #include <fstream>
+#include <iostream>
+#include <sstream>
 using namespace std;
 
 #include "defines.h"

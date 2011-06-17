@@ -14,7 +14,5 @@ int main(int argc, char** argv){
 	p.parse();
 	RBrowser t(argv[1],&p, &v);
 	t.browse();
-
-
 	return 1;
 }
