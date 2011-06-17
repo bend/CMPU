@@ -28,7 +28,7 @@ class Browser{
 	private:
 		/* methods */
 		int sbrowse(string path);
-		virtual int apply(string path);
+		virtual int apply(string path) = 0;
 		void buildPath(string path, string filename, string* res);
 		string path;
 		

@@ -72,7 +72,3 @@ void Browser::buildPath(string path, string filename, string* res){
 	res->append(filename);
 }
 
-int Browser::apply(string path){
-	cerr<<"You need to override this method"<<path<<endl;
-	return FAILURE;
-}
