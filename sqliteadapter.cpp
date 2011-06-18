@@ -34,11 +34,11 @@ int SqliteAdapter::executeQuery(string query){
 	const char *s = NULL;
 	int rc = sqlite3_prepare(this->db, query.c_str(), query.size(), &res, &s);
 	if (rc != SQLITE_OK){
-		cerr<<"execute: prepare query failed"<<endl;
+		cerr<<"execute: prepare query failed"<<sqlite3_errmsg(this->db)<<endl;
 		return FAILURE;
 	}
 	if (!res){
-		cerr<<"execute: query failed"<<endl;
+		cerr<<"execute: query failed"<<sqlite3_errmsg(this->db)<<endl;
 		return FAILURE;
 	}
 	rc = sqlite3_step(res); // execute
@@ -67,7 +67,7 @@ int SqliteAdapter::executeSelect(string query){
 		const char *s = NULL;
 		int rc = sqlite3_prepare(this->db, query.c_str(), query.size(), &res, &s);
 		if (rc != SQLITE_OK){
-			cerr<<"get_result: prepare query failed"<<endl;
+			cerr<<"get_result: prepare query failed"<<sqlite3_errmsg(this->db)<<endl;
 			return FAILURE;
 		}
 		if (!res){

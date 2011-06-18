@@ -12,3 +12,14 @@
  */
 
 #include "librarymanager.h"
+LibraryManager::LibraryManager(string libname){
+	this->libname=libname;
+	this->adapter = new SqliteAdapter();
+}
+
+int LibraryManager::createLibrary(){
+	adapter->openDatabase(libname);
+	return SUCCESS;
+}
+
+

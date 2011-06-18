@@ -27,6 +27,10 @@ class LibraryManager{
 		int addGenre(string name);
 		int addSong(string name, string artist="");
 
+	private:
+		string libname;
+		SqliteAdapter *adapter;
+
 
 
 };
