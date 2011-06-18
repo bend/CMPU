@@ -13,6 +13,7 @@
 #ifndef _LIBRARY_MANGER_H_
 #define _LIBRARY_MANGER_H_
 #include "sqliteadapter.h"
+#include "defines.h"
 
 class LibraryManager{
 	public:
@@ -24,9 +25,10 @@ class LibraryManager{
 		int addArtist(string name);
 		int addAlbum(string name,string genre, int year=0);
 		int addGenre(string name);
-		int addSong(string name, string artist=UNKNOWN);
-		int add
+		int addSong(string name, string artist="");
 
 
 
 };
+
+#endif
