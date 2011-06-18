@@ -35,3 +35,5 @@
 #define 	GENRE		"GEN"
 #define		LENGTH		"LEN"
 
+/* LibraryManager defines */
+#define 	UNKNOWN		"unknown";
