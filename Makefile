@@ -17,7 +17,7 @@ $(EXEC): $(OBJECTS)
 .PHONY: clean mrproper
 
 clean:
-	@rm -f $(OBJECTS)
+	@rm -f *.o
 
 mrproper:
 	@rm -f $(EXEC)
