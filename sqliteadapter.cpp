@@ -11,7 +11,7 @@
  *
  */
 
-#include "sqliteadapter.h"
+#include <sqliteadapter.h>
 
 SqliteAdapter::SqliteAdapter():SqlAdapter(){}
 SqliteAdapter::~SqliteAdapter(){}

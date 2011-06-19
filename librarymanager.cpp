@@ -11,7 +11,8 @@
  *
  */
 
-#include "librarymanager.h"
+#include <librarymanager.h>
+
 LibraryManager::LibraryManager(string libname){
 	this->libname=libname;
 	this->adapter = new SqliteAdapter();

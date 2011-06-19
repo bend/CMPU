@@ -1,5 +1,5 @@
-CFLAGS+=-W -Wall -Werror -pedantic
-LDFLAGS+=-lid3 -lsqlite3
+CFLAGS+=-W -Wall -Werror -pedantic -I.
+LDFLAGS+=-lid3 -lsqlite3 -I.
 EXEC=id3Rename
 SOURCES=$(wildcard *.cpp)
 OBJECTS=$(SOURCES:.cpp=.o)

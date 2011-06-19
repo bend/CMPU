@@ -12,8 +12,8 @@
  */
 #ifndef _SQLITE_ADAPTER_H_
 #define _SQLITE_ADAPTER_H_
-#include "sqladapter.h"
-#include "defines.h"
+#include <sqladapter.h>
+#include <defines.h>
 
 #include <sqlite3.h>
 #include <map>

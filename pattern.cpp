@@ -12,7 +12,7 @@
  */
 
 
-#include "pattern.h"
+#include <pattern.h>
 
 Pattern::Pattern(string pattern){
 	this->pattern = pattern;

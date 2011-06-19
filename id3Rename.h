@@ -21,8 +21,8 @@
 #include <sstream>
 using namespace std;
 
-#include "defines.h"
-#include "pattern.h"
+#include <defines.h>
+#include <pattern.h>
 
 class Id3Rename{
 

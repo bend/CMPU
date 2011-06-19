@@ -1,8 +1,9 @@
-#include "id3Rename.h"
-#include "pattern.h"
-#include "defines.h"
-#include "rbrowser.h"
-#include "sqliteadapter.h"
+#include <id3Rename.h>
+#include <pattern.h>
+#include <defines.h>
+#include <rbrowser.h>
+#include <sqliteadapter.h>
+
 #include <set>
 #include <iostream>
 

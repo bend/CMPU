@@ -12,7 +12,7 @@
  */
 #ifndef _BROWSER_H_
 #define _BROWSER_H_
-#include "defines.h"
+#include <defines.h>
 
 #include <sys/types.h> 
 #include <sys/stat.h>  

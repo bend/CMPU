@@ -12,9 +12,10 @@
  */
 #ifndef _RBROWSER_H_
 #define _RBROWSER_H_
-#include "browser.h"
-#include "id3Rename.h"
-#include "pattern.h"
+#include <browser.h>
+#include <id3Rename.h>
+#include <pattern.h>
+
 #include <iostream>
 #include <set>
 using namespace std;
