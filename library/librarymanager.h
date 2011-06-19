@@ -10,10 +10,10 @@
  *     @author  Ben D. (BD), dbapps2@gmail.com
  *
  */
-#ifndef _LIBRARY_MANGER_H_
-#define _LIBRARY_MANGER_H_
-#include <sqliteadapter.h>
-#include <defines.h>
+#ifndef _LIBRARY_MANAGER_H_
+#define _LIBRARY_MANAGER_H_
+#include <sqladapter/sqliteadapter.h>
+#include <defines/defines.h>
 
 class LibraryManager{
 	public:

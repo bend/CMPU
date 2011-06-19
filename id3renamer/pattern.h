@@ -16,7 +16,7 @@
 #include <vector>
 using namespace std;
 
-#include <defines.h>
+#include <defines/defines.h>
 
 class Pattern{
 	public:

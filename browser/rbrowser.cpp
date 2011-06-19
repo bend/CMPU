@@ -11,7 +11,7 @@
  *
  */
 
-#include <rbrowser.h>
+#include <browser/rbrowser.h>
 
 RBrowser::RBrowser(string path, Pattern* pattern, set<string> *ext):Browser(path){
 	this->pattern = pattern;

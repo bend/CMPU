@@ -11,7 +11,7 @@
  *
  */
 
-#include <librarymanager.h>
+#include <library/librarymanager.h>
 
 LibraryManager::LibraryManager(string libname){
 	this->libname=libname;
