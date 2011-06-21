@@ -22,7 +22,7 @@
 using namespace std;
 
 #include <defines/defines.h>
-#include <id3renamer/pattern.h>
+#include <id3tool/pattern.h>
 
 class Id3Rename{
 

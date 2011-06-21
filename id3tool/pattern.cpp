@@ -12,7 +12,7 @@
  */
 
 
-#include <id3renamer/pattern.h>
+#include <id3tool/pattern.h>
 
 Pattern::Pattern(string pattern){
 	this->pattern = pattern;

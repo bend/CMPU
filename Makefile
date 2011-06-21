@@ -6,7 +6,7 @@ SOURCES=$(wildcard *.cpp)
 SOURCES+=$(wildcard sqladapter/*.cpp)
 SOURCES+=$(wildcard browser/*.cpp)
 SOURCES+=$(wildcard library/*.cpp)
-SOURCES+=$(wildcard id3renamer/*.cpp)
+SOURCES+=$(wildcard id3tool/*.cpp)
 SOURCES+=$(wildcard defines/*.cpp)
 SOURCES+=$(wildcard main/*.cpp)
 
@@ -16,7 +16,7 @@ CC=g++
 
 all: $(EXEC)
 
-debug: CFLAGS= -Wall -W -DDEBUG -g
+debug: CFLAGS= -Wall -W -DDEBUG -g -I.
 
 debug: $(EXEC)
 

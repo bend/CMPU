@@ -1,5 +1,5 @@
-#include <id3renamer/id3renamer.h>
-#include <id3renamer/pattern.h>
+#include <id3tool/id3renamer.h>
+#include <id3tool/pattern.h>
 #include <defines/defines.h>
 #include <browser/rbrowser.h>
 #include <sqladapter/sqliteadapter.h>
