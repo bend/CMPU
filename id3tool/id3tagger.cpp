@@ -15,20 +15,57 @@
 
 Id3Tagger::Id3Tagger(string filename){
 	this->filename = filename;
+	this->myTag.Link(this->filename.c_str(),ID3TT_ALL);
 }
 
 int Id3Tagger::tagAlbum(string name){
-	return SUCCESS;
+	ID3_Frame* myFrame = NULL;
+	ID3_Field* myField = NULL;
+	myFrame= myTag.Find(ID3FID_ALBUM);
+	if(myFrame != 0){
+		myField= myFrame->GetField(ID3FN_TEXT);
+		myField->Set(name.c_str());
+		this->myTag.Update();
+		return SUCCESS;
+	}
+	return FAILURE;
 }
 
 int Id3Tagger::tagArtist(string name){
-	return SUCCESS; 
+	ID3_Frame* myFrame = NULL;
+	ID3_Field* myField = NULL;
+	myFrame= myTag.Find(ID3FID_LEADARTIST);
+	if(myFrame != 0){
+		myField= myFrame->GetField(ID3FN_TEXT);
+		myField->Set(name.c_str());
+		this->myTag.Update();
+		return SUCCESS;
+	}
+	return FAILURE;
 }
 
-int Id3Tagger::tagSong(string name){
-	return SUCCESS; 
+int Id3Tagger::tagTitle(string name){
+	ID3_Frame* myFrame = NULL;
+	ID3_Field* myField = NULL;
+	myFrame= myTag.Find(ID3FID_TITLE);
+	if(myFrame != 0){
+		myField= myFrame->GetField(ID3FN_TEXT);
+		myField->Set(name.c_str());
+		this->myTag.Update();
+		return SUCCESS;
+	}
+	return FAILURE;
 }
 
 int Id3Tagger::tagYear(string year){
-	return SUCCESS; 
+	ID3_Frame* myFrame = NULL;
+	ID3_Field* myField = NULL;
+	myFrame= myTag.Find(ID3FID_YEAR);
+	if(myFrame != 0){
+		myField= myFrame->GetField(ID3FN_TEXT);
+		myField->Set(year.c_str());
+		this->myTag.Update();
+		return SUCCESS;
+	}
+	return FAILURE;
 }

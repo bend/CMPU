@@ -43,6 +43,7 @@ class Id3Rename{
 		int appendTitle(char* newName);
 		int appendAlbum(char* newName);
 		int appendYear(char* newName);
+		int appendGenre(char* newName);
 
 		/* arguments */
 		char* song;

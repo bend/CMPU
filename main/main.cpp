@@ -3,6 +3,7 @@
 #include <defines/defines.h>
 #include <browser/rbrowser.h>
 #include <sqladapter/sqliteadapter.h>
+#include <id3tool/id3tagger.h>
 
 #include <set>
 #include <iostream>
@@ -10,6 +11,7 @@
 int main(int argc, char** argv){
 	if(argc<2)
 		return 0;
+	/*
 	Pattern p("ART#TIT");
 	set<string> v;
 	v.insert("mp3");
@@ -36,6 +38,14 @@ int main(int argc, char** argv){
 		cout<<"User#"<<num<<" : "<<name.c_str()<<" : "<<name2.c_str()<<endl;
 	}
 	adapter.closeDatabase();
+	*/
+	Id3Tagger tagger(argv[1]);
+	tagger.tagAlbum("My album");
+	tagger.tagArtist("Benoit Daccache");
+	tagger.tagTitle("the song");
+	tagger.tagYear("2012");
+
+
 
 	return 1;
 }

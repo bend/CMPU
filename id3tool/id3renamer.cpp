@@ -189,10 +189,26 @@ int Id3Rename::appendAlbum(char* newName){
 	}else return FAILURE;
 	return SUCCESS;
 }
+
 int Id3Rename::appendYear(char* newName){
 	ID3_Frame* myFrame = NULL;
 	char* title = new char[MAX_YEAR];
 	myFrame= myTag.Find(ID3FID_YEAR);
+	if(myFrame!=0){
+		myFrame->Field(ID3FN_TEXT).Get(title,MAX_YEAR);
+		if(strncat(newName,title,MAX_YEAR) < 0){
+			cerr<<"strncat fail in Id3Rename::appendTitle"<<endl;
+			return FAILURE;
+		}
+	}else return FAILURE;
+	return SUCCESS;
+}
+
+
+int Id3Rename::appendGenre(char* newName){
+	ID3_Frame* myFrame = NULL;
+	char* title = new char[MAX_YEAR];
+	myFrame= myTag.Find(ID3FID_GENRE);
 	if(myFrame!=0){
 		myFrame->Field(ID3FN_TEXT).Get(title,MAX_YEAR);
 		if(strncat(newName,title,MAX_YEAR) < 0){
