@@ -13,7 +13,7 @@
 #ifndef _TBROWSER_H_
 #define _TBROWSER_H_
 #include <browser/browser.h>
-#include <id3tool/id3renamer.h>
+#include <id3tool/id3tagger.h>
 #include <id3tool/pattern.h>
 
 #include <iostream>
@@ -21,11 +21,12 @@
 using namespace std;
 class TBrowser: public Browser{
 	public:
-		TBrowser(string test, set<string> *vect);
+		TBrowser(string test, set<string> *vect, Pattern *pattern);
 		~TBrowser();
 	private:
 		virtual int apply(string str);
 		set<string> *ext;
+		Pattern *pattern;
 
 };
 

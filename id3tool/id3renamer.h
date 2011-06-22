@@ -28,25 +28,24 @@ class Id3Rename{
 
 	public:
 		/* methods */
-		Id3Rename(char* song, Pattern* pattern);
+		Id3Rename(string song, Pattern* pattern);
 		~Id3Rename();
 		int apply();
 	
 	private:
 		/* methods */
 		int renameIfExist(char* path);
-		int mv(char* oldName, char* newName);
-		int parsePath(char* file, char* path);
+		int mv(const char* oldName, char* newName);
+		int parsePath(const char* file, char* path);
 		int appendDelimiter(char* newName);
 		int appendExtension(char* newName);
 		int appendArtist(char* newName);
 		int appendTitle(char* newName);
 		int appendAlbum(char* newName);
 		int appendYear(char* newName);
-		int appendGenre(char* newName);
 
 		/* arguments */
-		char* song;
+		string song;
 		Pattern* pattern;
 		ID3_Tag myTag;
 

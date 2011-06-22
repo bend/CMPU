@@ -13,7 +13,7 @@
 
 #include <id3tool/id3Renamer.h>
 
-Id3Rename::Id3Rename(char* song, Pattern* pattern){
+Id3Rename::Id3Rename(string song, Pattern* pattern){
 	this->song = song;
 	this->pattern = pattern;
 }
@@ -22,7 +22,7 @@ Id3Rename::~Id3Rename(){}
 
 
 int Id3Rename::apply(){
-	this->myTag.Link(this->song,ID3TT_ALL);
+	this->myTag.Link(this->song.c_str(),ID3TT_ALL);
 	this->pattern->reset();
 	char *newName= new char[MAX_ALL];
 	bool first = true;
@@ -61,7 +61,7 @@ int Id3Rename::apply(){
 		delete token;
 		return FAILURE;
 	}
-	if(this->mv(this->song, newName) < 0){
+	if(this->mv(this->song.c_str(), newName) < 0){
 		delete[] newName;
 		delete token;
 		return FAILURE;
@@ -69,7 +69,7 @@ int Id3Rename::apply(){
 	return SUCCESS;
 }
 
-int Id3Rename::parsePath(char* file, char* path){
+int Id3Rename::parsePath(const char* file, char* path){
 	if(realpath(file, path) == NULL){
 		cerr<<"realPath fail in Id3Rename::parsePath"<<endl;
 		return FAILURE;
@@ -127,7 +127,7 @@ int Id3Rename::renameIfExist(char* path){
 	return SUCCESS;
 }
 
-int Id3Rename::mv(char* oldName, char* newName){
+int Id3Rename::mv(const char* oldName, char* newName){
 	char resolvedPath[MAX_PATH];
 	char completeName[MAX_ALL];
 	if(this->parsePath(oldName, resolvedPath)<0)
@@ -204,17 +204,3 @@ int Id3Rename::appendYear(char* newName){
 	return SUCCESS;
 }
 
-
-int Id3Rename::appendGenre(char* newName){
-	ID3_Frame* myFrame = NULL;
-	char* title = new char[MAX_YEAR];
-	myFrame= myTag.Find(ID3FID_GENRE);
-	if(myFrame!=0){
-		myFrame->Field(ID3FN_TEXT).Get(title,MAX_YEAR);
-		if(strncat(newName,title,MAX_YEAR) < 0){
-			cerr<<"strncat fail in Id3Rename::appendTitle"<<endl;
-			return FAILURE;
-		}
-	}else return FAILURE;
-	return SUCCESS;
-}

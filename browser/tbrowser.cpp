@@ -13,8 +13,9 @@
 
 #include <browser/tbrowser.h>
 
-TBrowser::TBrowser(string path, set<string> *ext):Browser(path){
+TBrowser::TBrowser(string path, set<string> *ext, Pattern *pattern):Browser(path){
 	this->ext = ext;
+	this->pattern = pattern;
 }
 
 TBrowser::~TBrowser(){}
@@ -23,7 +24,8 @@ int TBrowser::apply(string str){
 	int period = str.find_last_of(".");
 	string e = str.substr(period+1);
 	if(ext->find(e)!= ext->end()){
-		return SUCCESS;
+		Id3Tagger tag(str, this->pattern);
+		return tag.apply();
 	}
 	return SUCCESS;
 }

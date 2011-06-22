@@ -39,11 +39,7 @@ int main(int argc, char** argv){
 	}
 	adapter.closeDatabase();
 	*/
-	Id3Tagger tagger(argv[1]);
-	tagger.tagAlbum("My album");
-	tagger.tagArtist("Benoit Daccache");
-	tagger.tagTitle("the song");
-	tagger.tagYear("2012");
+	cout<<argv[0]<<endl;
 
 
 

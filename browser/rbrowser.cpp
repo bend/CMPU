@@ -24,7 +24,7 @@ int RBrowser::apply(string str){
 	int period = str.find_last_of(".");
 	string e = str.substr(period+1);
 	if(ext->find(e)!= ext->end()){
-		Id3Rename r(const_cast<char*>(str.c_str()), this->pattern);
+		Id3Rename r(str, this->pattern);
 		return r.apply();
 	}
 	return SUCCESS;

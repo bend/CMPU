@@ -13,9 +13,43 @@
 
 #include <id3tool/id3tagger.h>
 
-Id3Tagger::Id3Tagger(string filename){
+Id3Tagger::Id3Tagger(string filename, Pattern* pattern){
 	this->filename = filename;
+	this->pattern = pattern;
+}
+
+int Id3Tagger::apply(){
 	this->myTag.Link(this->filename.c_str(),ID3TT_ALL);
+	string *token = new string();
+	while(pattern->next(token) != EMPTY){
+		if(*token == ARTIST){
+			if(pattern->next(token)!=SUCCESS){
+				if(tagArtist(*token) == FAILURE)
+					return FAILURE;
+			}
+		}else if(*token == TITLE){
+			if(pattern->next(token)!=SUCCESS){
+				if(tagTitle(*token) == FAILURE)
+					return FAILURE;
+			}
+		}else if(*token == ALBUM){
+			if(pattern->next(token)!=SUCCESS){
+				if(tagAlbum(*token) == FAILURE)
+					return FAILURE;
+			}
+		}else if(*token == YEAR){
+			if(pattern->next(token)!=SUCCESS){
+				if(tagYear(*token) == FAILURE)
+					return FAILURE;
+			}
+		}else{
+			cerr<<"Pattern not found"<<*token<<endl;
+			delete token;
+			return FAILURE;
+		}
+	}
+	delete token;
+	return SUCCESS;
 }
 
 int Id3Tagger::tagAlbum(string name){
@@ -69,3 +103,4 @@ int Id3Tagger::tagYear(string year){
 	}
 	return FAILURE;
 }
+
