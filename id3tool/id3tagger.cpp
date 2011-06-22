@@ -27,22 +27,34 @@ int Id3Tagger::apply(){
 			if(pattern->next(token)==SUCCESS){
 				if(tagArtist(*token) == FAILURE)
 					return FAILURE;
-			}else return FAILURE;
+			}else{
+				cerr<<"No string found"<<endl;
+				return FAILURE;
+			}
 		}else if(*token == TITLE){
 			if(pattern->next(token)==SUCCESS){
 				if(tagTitle(*token) == FAILURE)
 					return FAILURE;
-			}else return FAILURE;
+			}else{
+				cerr<<"No string found"<<endl;
+			   	return FAILURE;
+			}
 		}else if(*token == ALBUM){
 			if(pattern->next(token)==SUCCESS){
 				if(tagAlbum(*token) == FAILURE)
 					return FAILURE;
-			}else return FAILURE;
+			}else{
+				cerr<<"No string found"<<endl;
+			   	return FAILURE;
+			}
 		}else if(*token == YEAR){
 			if(pattern->next(token)==SUCCESS){
 				if(tagYear(*token) == FAILURE)
 					return FAILURE;
-			}else return FAILURE;
+			}else{
+				cerr<<"No string found"<<endl;
+			   	return FAILURE;
+			}
 		}else{
 			cerr<<"Pattern not found"<<*token<<endl;
 			delete token;
