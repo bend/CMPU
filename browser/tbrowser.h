@@ -21,7 +21,7 @@
 using namespace std;
 class TBrowser: public Browser{
 	public:
-		TBrowser(string test, set<string> *vect, Pattern *pattern);
+		TBrowser(string test, Pattern *pattern, set<string> *vect );
 		~TBrowser();
 	private:
 		virtual int apply(string str);

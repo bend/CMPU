@@ -2,8 +2,8 @@
 #include <id3tool/pattern.h>
 #include <defines/defines.h>
 #include <browser/rbrowser.h>
+#include <browser/tbrowser.h>
 #include <sqladapter/sqliteadapter.h>
-#include <id3tool/id3tagger.h>
 
 #include <set>
 #include <iostream>
@@ -11,15 +11,16 @@
 int main(int argc, char** argv){
 	if(argc<2)
 		return 0;
-	/*
-	Pattern p("ART#TIT");
+	
+	Pattern p("ART#Benoit");
 	set<string> v;
 	v.insert("mp3");
 	p.parse();
-	RBrowser t(argv[1],&p, &v);
-	t.browse();
-	SqliteAdapter adapter;
 
+	TBrowser t(argv[1],&p, &v);
+	t.browse();
+
+	/*
 	adapter.openDatabase("test.db");
 	string q ="create table t1 (t1key INTEGER PRIMARY KEY,data TEXT,num double,data2 TEXT);";
 	adapter.executeQuery(q);
@@ -39,6 +40,7 @@ int main(int argc, char** argv){
 	}
 	adapter.closeDatabase();
 	*/
+
 	cout<<argv[0]<<endl;
 
 

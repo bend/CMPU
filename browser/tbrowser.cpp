@@ -13,7 +13,7 @@
 
 #include <browser/tbrowser.h>
 
-TBrowser::TBrowser(string path, set<string> *ext, Pattern *pattern):Browser(path){
+TBrowser::TBrowser(string path, Pattern *pattern, set<string> *ext ):Browser(path){
 	this->ext = ext;
 	this->pattern = pattern;
 }

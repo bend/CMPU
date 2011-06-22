@@ -20,28 +20,29 @@ Id3Tagger::Id3Tagger(string filename, Pattern* pattern){
 
 int Id3Tagger::apply(){
 	this->myTag.Link(this->filename.c_str(),ID3TT_ALL);
+	this->pattern->reset();
 	string *token = new string();
 	while(pattern->next(token) != EMPTY){
 		if(*token == ARTIST){
-			if(pattern->next(token)!=SUCCESS){
+			if(pattern->next(token)==SUCCESS){
 				if(tagArtist(*token) == FAILURE)
 					return FAILURE;
-			}
+			}else return FAILURE;
 		}else if(*token == TITLE){
-			if(pattern->next(token)!=SUCCESS){
+			if(pattern->next(token)==SUCCESS){
 				if(tagTitle(*token) == FAILURE)
 					return FAILURE;
-			}
+			}else return FAILURE;
 		}else if(*token == ALBUM){
-			if(pattern->next(token)!=SUCCESS){
+			if(pattern->next(token)==SUCCESS){
 				if(tagAlbum(*token) == FAILURE)
 					return FAILURE;
-			}
+			}else return FAILURE;
 		}else if(*token == YEAR){
-			if(pattern->next(token)!=SUCCESS){
+			if(pattern->next(token)==SUCCESS){
 				if(tagYear(*token) == FAILURE)
 					return FAILURE;
-			}
+			}else return FAILURE;
 		}else{
 			cerr<<"Pattern not found"<<*token<<endl;
 			delete token;
