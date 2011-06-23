@@ -13,14 +13,17 @@
 
 #ifndef _ERROR_LOGGER_H_
 #define _ERROR_LOGGER_H_
+#include <defines/error.h>
 #include <iostream>
+#include <fstream>
 using namespace std;
 class ErrorLogger{
 	public:
-		static ErrorLogger* getInstance();
+		static void log(string, string);
 		static void  close();
 	private:
 		static ErrorLogger *singleton;
+		static ofstream fout; 
 	protected:
 		ErrorLogger();
 

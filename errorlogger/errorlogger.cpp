@@ -14,16 +14,20 @@
 #include <errorlogger/errorlogger.h>
 
 ErrorLogger *ErrorLogger::singleton = NULL;
+ofstream ErrorLogger::fout;
 
-ErrorLogger::ErrorLogger(){}
+ErrorLogger::ErrorLogger(){
+	 fout.open(LOG_PATH,ios::app);
+}
 
-ErrorLogger* ErrorLogger::getInstance(){
+void ErrorLogger::log(string type, string message){
 	if(singleton == NULL)
 		singleton = new ErrorLogger;
-	return singleton;
+	fout<<type<<" : "<<message<<endl;
 }
 
 void ErrorLogger::close(){
+	fout.close();
 	if(singleton != NULL){
 		delete singleton;
 		singleton = NULL;

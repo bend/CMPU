@@ -4,6 +4,7 @@
 #include <browser/rbrowser.h>
 #include <browser/tbrowser.h>
 #include <sqladapter/sqliteadapter.h>
+#include <errorlogger/errorlogger.h>
 
 #include <set>
 #include <iostream>
@@ -19,6 +20,13 @@ int main(int argc, char** argv){
 
 	TBrowser t(argv[1],&p, &v);
 	t.browse();
+	ErrorLogger::log("tet1","test3");
+	ErrorLogger::log("tet1","test3");
+	ErrorLogger::log("tet1","test3");
+	ErrorLogger::log("tet1","test3");
+	ErrorLogger::close();
+
+
 
 	/*
 	adapter.openDatabase("test.db");
