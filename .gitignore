@@ -2,5 +2,5 @@
 *.swo
 tag
 tags
-d3Rename
-
+Id3Rename
+*.o

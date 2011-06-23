@@ -12,7 +12,7 @@ int main(int argc, char** argv){
 	if(argc<2)
 		return 0;
 	
-	Pattern p("ART#Benoit");
+	Pattern p("ART#Benoit#ALB#My Album");
 	set<string> v;
 	v.insert("mp3");
 	p.parse();
