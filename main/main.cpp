@@ -1,10 +1,11 @@
 #include <id3tool/id3renamer.h>
 #include <id3tool/pattern.h>
 #include <defines/defines.h>
+#include <defines/error.h>
 #include <browser/rbrowser.h>
 #include <browser/tbrowser.h>
 #include <sqladapter/sqliteadapter.h>
-#include <errorlogger/errorlogger.h>
+#include <logger/errorlogger.h>
 
 #include <set>
 #include <iostream>
@@ -20,11 +21,6 @@ int main(int argc, char** argv){
 
 	TBrowser t(argv[1],&p, &v);
 	t.browse();
-	ErrorLogger::log("tet1","test3");
-	ErrorLogger::log("tet1","test3");
-	ErrorLogger::log("tet1","test3");
-	ErrorLogger::log("tet1","test3");
-	ErrorLogger::close();
 
 
 

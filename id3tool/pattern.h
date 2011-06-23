@@ -17,6 +17,7 @@
 using namespace std;
 
 #include <defines/defines.h>
+#include <logger/errorlogger.h>
 
 class Pattern{
 	public:

@@ -9,7 +9,7 @@ SOURCES+=$(wildcard library/*.cpp)
 SOURCES+=$(wildcard id3tool/*.cpp)
 SOURCES+=$(wildcard defines/*.cpp)
 SOURCES+=$(wildcard main/*.cpp)
-SOURCES+=$(wildcard errorlogger/*.cpp)
+SOURCES+=$(wildcard logger/*.cpp)
 
 
 OBJECTS=$(SOURCES:.cpp=.o)

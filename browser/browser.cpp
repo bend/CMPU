@@ -22,7 +22,7 @@ Browser::~Browser(){}
 int Browser::browse(){
 	struct stat file_status;                                                             
 	if (stat(this->path.c_str(), &file_status) <0) {
-		cerr<<"Error: "<<endl;
+		ErrorLogger::log("Could not get stats for path",path);
 		return FAILURE;     
 	}                                                                                    
 	/* Check if file or Folder */
@@ -60,7 +60,6 @@ int Browser::sbrowse(string path){
 		}
 	}
 	free(dir);
-	free(ent);
 	delete newPath;
 	return SUCCESS;
 }

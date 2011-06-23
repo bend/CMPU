@@ -13,6 +13,7 @@
 #ifndef _ID3TAGGER_H_
 #define _ID3TAGGER_H_
 #include <defines/defines.h>
+#include <logger/errorlogger.h>
 #include <id3tool/pattern.h>
 #include <id3/tag.h>
 #include <iostream>

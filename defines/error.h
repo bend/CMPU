@@ -11,6 +11,6 @@
  *
  */
 
-#define LOG_PATH 		"./log.dat"
+#define LOG_PATH 		"/dev/stdout"
 #define ERROR			"Error"
-
+#define BROWSER			"Browser"

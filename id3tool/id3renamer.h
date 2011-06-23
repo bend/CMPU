@@ -23,6 +23,7 @@ using namespace std;
 
 #include <defines/defines.h>
 #include <id3tool/pattern.h>
+#include <logger/errorlogger.h>
 
 class Id3Rename{
 

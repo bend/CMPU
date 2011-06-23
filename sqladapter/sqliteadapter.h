@@ -14,6 +14,7 @@
 #define _SQLITE_ADAPTER_H_
 #include <sqladapter/sqladapter.h>
 #include <defines/defines.h>
+#include <logger/errorlogger.h>
 
 #include <sqlite3.h>
 #include <map>

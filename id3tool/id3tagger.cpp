@@ -12,6 +12,7 @@
  */
 
 #include <id3tool/id3tagger.h>
+#include <logger/errorlogger.h>
 
 Id3Tagger::Id3Tagger(string filename, Pattern* pattern){
 	this->filename = filename;
@@ -28,7 +29,7 @@ int Id3Tagger::apply(){
 				if(tagArtist(*token) == FAILURE)
 					return FAILURE;
 			}else{
-				cerr<<"No string found"<<endl;
+				ErrorLogger::log("No string found");
 				return FAILURE;
 			}
 		}else if(*token == TITLE){
@@ -36,7 +37,7 @@ int Id3Tagger::apply(){
 				if(tagTitle(*token) == FAILURE)
 					return FAILURE;
 			}else{
-				cerr<<"No string found"<<endl;
+				ErrorLogger::log("No string found");
 			   	return FAILURE;
 			}
 		}else if(*token == ALBUM){
@@ -44,7 +45,7 @@ int Id3Tagger::apply(){
 				if(tagAlbum(*token) == FAILURE)
 					return FAILURE;
 			}else{
-				cerr<<"No string found"<<endl;
+				ErrorLogger::log("No string found");
 			   	return FAILURE;
 			}
 		}else if(*token == YEAR){
@@ -52,11 +53,11 @@ int Id3Tagger::apply(){
 				if(tagYear(*token) == FAILURE)
 					return FAILURE;
 			}else{
-				cerr<<"No string found"<<endl;
+				ErrorLogger::log("No string found");
 			   	return FAILURE;
 			}
 		}else{
-			cerr<<"Pattern not found"<<*token<<endl;
+			ErrorLogger::log("Pattern not found",*token);
 			delete token;
 			return FAILURE;
 		}

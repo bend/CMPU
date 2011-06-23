@@ -23,7 +23,7 @@ Pattern::~Pattern(){}
 int Pattern::parse(){
 	string delim(SEPARATOR);
 	if(this->pattern.length() == 0){
-		cerr<<"Error:Invalid pattern"<<endl;
+		ErrorLogger::log("Error:Invalid pattern");
 		return FAILURE;
 	}
 	tokenize(this->pattern, delim);

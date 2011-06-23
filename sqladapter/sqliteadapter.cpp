@@ -19,7 +19,7 @@ int SqliteAdapter::openDatabase(string databaseName){
 	int rc;
 	rc = sqlite3_open(databaseName.c_str(), &(this->db));
 	if( rc ){
-		cerr<<"Can't open database: "<< sqlite3_errmsg(this->db)<<endl;
+		ErrorLogger::log("Can't open database: ",sqlite3_errmsg(this->db));
 		sqlite3_close(db);
 		return FAILURE;
 	}
@@ -34,31 +34,31 @@ int SqliteAdapter::executeQuery(string query){
 	const char *s = NULL;
 	int rc = sqlite3_prepare(this->db, query.c_str(), query.size(), &res, &s);
 	if (rc != SQLITE_OK){
-		cerr<<"execute: prepare query failed"<<sqlite3_errmsg(this->db)<<endl;
+		ErrorLogger::log("execute: prepare query failed",sqlite3_errmsg(this->db));
 		return FAILURE;
 	}
 	if (!res){
-		cerr<<"execute: query failed"<<sqlite3_errmsg(this->db)<<endl;
-		return FAILURE;
+		ErrorLogger::log("execute: query failed",sqlite3_errmsg(this->db));
+			return FAILURE;
 	}
 	rc = sqlite3_step(res); // execute
 	sqlite3_finalize(res); // deallocate statement
 	res = NULL;
 	switch (rc){
 		case SQLITE_BUSY:
-			cerr<<"execute: database busy"<<endl;
+			ErrorLogger::log("execute: database busy");
 			return FAILURE;
 		case SQLITE_DONE:
 		case SQLITE_ROW:
 			return SUCCESS;
 		case SQLITE_ERROR:
-			cerr<<sqlite3_errmsg(this->db)<<endl;
+			ErrorLogger::log(sqlite3_errmsg(this->db));
 			return SUCCESS;
 		case SQLITE_MISUSE:
-			cerr<<"execute: database misuse"<<endl;
+			ErrorLogger::log("execute: database misuse");
 			return FAILURE;
 	}
-	cerr<<"execute: unknown result code"<<endl;
+	ErrorLogger::log("execute: unknown result code");
 	return FAILURE;	
 }
 
@@ -67,11 +67,11 @@ int SqliteAdapter::executeSelect(string query){
 		const char *s = NULL;
 		int rc = sqlite3_prepare(this->db, query.c_str(), query.size(), &res, &s);
 		if (rc != SQLITE_OK){
-			cerr<<"get_result: prepare query failed"<<sqlite3_errmsg(this->db)<<endl;
+			ErrorLogger::log("get_result: prepare query failed",sqlite3_errmsg(this->db));
 			return FAILURE;
 		}
 		if (!res){
-			cerr<<"get_result: query failed"<<endl;
+			ErrorLogger::log("get_result: query failed");
 			return FAILURE;
 		}
 		// get column names from result
@@ -107,13 +107,13 @@ int SqliteAdapter::fetch_row(){
 			row = true;
 			return SUCCESS;
 		case SQLITE_ERROR:
-			cerr<<sqlite3_errmsg(this-> db)<<endl;
+			ErrorLogger::log(sqlite3_errmsg(this-> db));
 			return FAILURE;
 		case SQLITE_MISUSE:
-			cerr<<"execute: database misuse"<<endl;
+			ErrorLogger::log("execute: database misuse");
 			return FAILURE;
 	}
-	cerr<<"execute: unknown result code"<<endl;
+	ErrorLogger::log("execute: unknown result code");
 	return FAILURE;
 }
 
@@ -133,7 +133,7 @@ long SqliteAdapter::getVal(const string& x){
 	int index = m_nmap[x] - 1;
 	if (index >= 0)
 		return getVal(index);
-	cerr<<"Column name lookup failure: " <<x<<endl;
+	ErrorLogger::log("Column name lookup failure: ",x);
 	return 0;
 }
 

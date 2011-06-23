@@ -13,7 +13,7 @@
 #ifndef _BROWSER_H_
 #define _BROWSER_H_
 #include <defines/defines.h>
-
+#include <logger/errorlogger.h>
 #include <sys/types.h> 
 #include <sys/stat.h>  
 #include <dirent.h>    
