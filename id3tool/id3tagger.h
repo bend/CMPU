@@ -10,6 +10,8 @@
  *     @author  Ben D. (BD), dbapps2@gmail.com
  *
  */
+#ifndef _ID3TAGGER_H_
+#define _ID3TAGGER_H_
 #include <defines/defines.h>
 #include <id3tool/pattern.h>
 #include <id3/tag.h>
@@ -30,3 +32,5 @@ class Id3Tagger{
 		ID3_Tag myTag;
 
 };
+
+#endif
