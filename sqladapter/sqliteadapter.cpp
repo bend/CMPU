@@ -147,3 +147,4 @@ long SqliteAdapter::getVal(int x){
 long SqliteAdapter::getVal(){
 	return getVal(rowcount++);
 }
+

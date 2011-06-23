@@ -19,6 +19,7 @@
 #include <sqlite3.h>
 #include <map>
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 class SqliteAdapter:public SqlAdapter{
@@ -36,6 +37,8 @@ class SqliteAdapter:public SqlAdapter{
 		long getVal();
 		long getVal(int x);
 	private:
+		int readFile(string path, string* returnVal);
+
 		sqlite3 *db;
 		sqlite3_stmt *res;
 		map<string,int> m_nmap;

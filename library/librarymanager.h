@@ -14,6 +14,7 @@
 #define _LIBRARY_MANAGER_H_
 #include <sqladapter/sqliteadapter.h>
 #include <defines/defines.h>
+#include <defines/database.h>
 
 class LibraryManager{
 	public:

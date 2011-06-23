@@ -6,6 +6,7 @@
 #include <browser/tbrowser.h>
 #include <sqladapter/sqliteadapter.h>
 #include <logger/errorlogger.h>
+#include <defines/database.h>
 
 #include <set>
 #include <iostream>
@@ -21,7 +22,6 @@ int main(int argc, char** argv){
 
 	TBrowser t(argv[1],&p, &v);
 	t.browse();
-
 
 
 	/*
