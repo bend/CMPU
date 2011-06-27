@@ -14,7 +14,9 @@
 #include <sqladapter/sqliteadapter.h>
 
 SqliteAdapter::SqliteAdapter():SqlAdapter(){}
+
 SqliteAdapter::~SqliteAdapter(){}
+
 int SqliteAdapter::openDatabase(string databaseName){
 	int rc;
 	rc = sqlite3_open(databaseName.c_str(), &(this->db));
@@ -31,7 +33,7 @@ void SqliteAdapter::closeDatabase(){
 }
 
 int SqliteAdapter::executeQuery(string query){
-	const char *s = NULL;
+
 	int rc = sqlite3_prepare(this->db, query.c_str(), query.size(), &res, &s);
 	if (rc != SQLITE_OK){
 		ErrorLogger::log("execute: prepare query failed ",sqlite3_errmsg(this->db));
@@ -39,7 +41,7 @@ int SqliteAdapter::executeQuery(string query){
 	}
 	if (!res){
 		ErrorLogger::log("execute: query failed ",sqlite3_errmsg(this->db));
-			return FAILURE;
+
 	}
 	rc = sqlite3_step(res); // execute
 	sqlite3_finalize(res); // deallocate statement

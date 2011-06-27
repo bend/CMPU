@@ -21,21 +21,21 @@ LibraryManager::LibraryManager(string libname){
 int LibraryManager::createLibrary(){
 	if(	adapter->openDatabase(libname) == FAILURE)
 		return FAILURE;
-	if(adapter->executeQuery(DatabaseDefs::tableArtist()))
+	if(adapter->executeQuery(DatabaseCreate::tableArtist()))
 		return FAILURE;
-	if(adapter->executeQuery(DatabaseDefs::tableAlbum()))
+	if(adapter->executeQuery(DatabaseCreate::tableAlbum()))
 		return FAILURE;
-	if(adapter->executeQuery(DatabaseDefs::tableGenre()))
+	if(adapter->executeQuery(DatabaseCreate::tableGenre()))
 		return FAILURE;
-	if(adapter->executeQuery(DatabaseDefs::tableSong()))
+	if(adapter->executeQuery(DatabaseCreate::tableSong()))
 		return FAILURE;
-	if(adapter->executeQuery(DatabaseDefs::tableAuthor()))
+	if(adapter->executeQuery(DatabaseCreate::relationAuthor()))
 		return FAILURE;
-	if(adapter->executeQuery(DatabaseDefs::relationComposed()))
+	if(adapter->executeQuery(DatabaseCreate::relationComposed()))
 		return FAILURE;
-	if(adapter->executeQuery(DatabaseDefs::relationIsIn()))
+	if(adapter->executeQuery(DatabaseCreate::relationIsIn()))
 		return FAILURE;
-	if(adapter->executeQuery(DatabaseDefs::relationGot()))
+	if(adapter->executeQuery(DatabaseCreate::relationGot()))
 		return FAILURE;
 	return SUCCESS;
 }
@@ -49,4 +49,8 @@ int LibraryManager::openLibrary(){
 
 void LibraryManager::closeLibrary(){
 	adapter->closeDatabase();
+}
+
+int LibraryManager::addArtist(string name, string details){
+	return adapter->executeQuery();
 }

@@ -14,7 +14,8 @@
 #define _LIBRARY_MANAGER_H_
 #include <sqladapter/sqliteadapter.h>
 #include <defines/defines.h>
-#include <defines/database.h>
+#include <defines/databasecreate.h>
+#include <defines/databasequery.h>
 
 class LibraryManager{
 	public:
@@ -23,10 +24,10 @@ class LibraryManager{
 		int openLibrary();
 		void closeLibrary();
 
-		int addArtist(string name);
-		int addAlbum(string name,string genre, int year=0);
-		int addGenre(string name);
-		int addSong(string name, string artist="");
+		int addArtist(string name, string details="");
+		int addAlbum(string name, string details="");
+		int addGenre(string name, string details="");
+		int addSong(string title, int duration, string artist="");
 
 	private:
 		string libname;
