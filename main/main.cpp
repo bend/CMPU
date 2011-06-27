@@ -6,7 +6,8 @@
 #include <browser/tbrowser.h>
 #include <sqladapter/sqliteadapter.h>
 #include <logger/errorlogger.h>
-#include <defines/database.h>
+#include <defines/database.h> 
+#include <library/libraryManager.h>
 
 #include <set>
 #include <iostream>
@@ -14,7 +15,7 @@
 int main(int argc, char** argv){
 	if(argc<2)
 		return 0;
-	
+	/*
 	Pattern p("ART#Benoit#ALB#My Album");
 	set<string> v;
 	v.insert("mp3");
@@ -22,9 +23,13 @@ int main(int argc, char** argv){
 
 	TBrowser t(argv[1],&p, &v);
 	t.browse();
+	*/
+	
+	LibraryManager l("musicLib");
+	l.createLibrary();
 
 
-	/*
+/*
 	adapter.openDatabase("test.db");
 	string q ="create table t1 (t1key INTEGER PRIMARY KEY,data TEXT,num double,data2 TEXT);";
 	adapter.executeQuery(q);

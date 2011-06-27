@@ -34,11 +34,11 @@ int SqliteAdapter::executeQuery(string query){
 	const char *s = NULL;
 	int rc = sqlite3_prepare(this->db, query.c_str(), query.size(), &res, &s);
 	if (rc != SQLITE_OK){
-		ErrorLogger::log("execute: prepare query failed",sqlite3_errmsg(this->db));
+		ErrorLogger::log("execute: prepare query failed ",sqlite3_errmsg(this->db));
 		return FAILURE;
 	}
 	if (!res){
-		ErrorLogger::log("execute: query failed",sqlite3_errmsg(this->db));
+		ErrorLogger::log("execute: query failed ",sqlite3_errmsg(this->db));
 			return FAILURE;
 	}
 	rc = sqlite3_step(res); // execute
@@ -46,7 +46,7 @@ int SqliteAdapter::executeQuery(string query){
 	res = NULL;
 	switch (rc){
 		case SQLITE_BUSY:
-			ErrorLogger::log("execute: database busy");
+			ErrorLogger::log("execute: database busy ");
 			return FAILURE;
 		case SQLITE_DONE:
 		case SQLITE_ROW:
@@ -55,7 +55,7 @@ int SqliteAdapter::executeQuery(string query){
 			ErrorLogger::log(sqlite3_errmsg(this->db));
 			return SUCCESS;
 		case SQLITE_MISUSE:
-			ErrorLogger::log("execute: database misuse");
+			ErrorLogger::log("execute: database misuse ");
 			return FAILURE;
 	}
 	ErrorLogger::log("execute: unknown result code");
