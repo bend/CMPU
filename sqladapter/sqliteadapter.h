@@ -30,7 +30,8 @@ class SqliteAdapter:public SqlAdapter{
 		void closeDatabase();
 		int executeQuery(string query);
 		int executeSelect(string query);
-		int fetch_row();
+		int fetchRow();
+		void freeResult();
 		const char* getStr(int x);
 		const char* getStr();
 		long getVal(const string& x);

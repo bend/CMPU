@@ -20,6 +20,7 @@ SqliteAdapter::~SqliteAdapter(){}
 int SqliteAdapter::openDatabase(string databaseName){
 	int rc;
 	rc = sqlite3_open(databaseName.c_str(), &(this->db));
+	res=NULL;
 	if( rc ){
 		ErrorLogger::log("Can't open database: ",sqlite3_errmsg(this->db));
 		sqlite3_close(db);
@@ -32,8 +33,22 @@ void SqliteAdapter::closeDatabase(){
 	sqlite3_close(this->db);
 }
 
-int SqliteAdapter::executeQuery(string query){
+void SqliteAdapter::freeResult(){
+	if (res){
+		sqlite3_finalize(res);
+		res = NULL;
+		row = false;
+		cache_rc_valid = false;
+	}
+	while (m_nmap.size()){
+		std::map<std::string,int>::iterator it = m_nmap.begin();
+		m_nmap.erase(it);
+	}
+}
 
+
+int SqliteAdapter::executeQuery(string query){
+	const char *s = NULL;
 	int rc = sqlite3_prepare(this->db, query.c_str(), query.size(), &res, &s);
 	if (rc != SQLITE_OK){
 		ErrorLogger::log("execute: prepare query failed ",sqlite3_errmsg(this->db));
@@ -41,7 +56,7 @@ int SqliteAdapter::executeQuery(string query){
 	}
 	if (!res){
 		ErrorLogger::log("execute: query failed ",sqlite3_errmsg(this->db));
-
+		return FAILURE;
 	}
 	rc = sqlite3_step(res); // execute
 	sqlite3_finalize(res); // deallocate statement
@@ -94,7 +109,7 @@ int SqliteAdapter::executeSelect(string query){
 	return SUCCESS;
 }
 
-int SqliteAdapter::fetch_row(){
+int SqliteAdapter::fetchRow(){
 	row = false;
 	rowcount = 0;
 	int rc = cache_rc_valid ? cache_rc : sqlite3_step(res); 

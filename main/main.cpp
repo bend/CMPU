@@ -6,7 +6,6 @@
 #include <browser/tbrowser.h>
 #include <sqladapter/sqliteadapter.h>
 #include <logger/errorlogger.h>
-#include <defines/database.h> 
 #include <library/libraryManager.h>
 
 #include <set>
@@ -24,10 +23,35 @@ int main(int argc, char** argv){
 	TBrowser t(argv[1],&p, &v);
 	t.browse();
 	*/
-	
-	LibraryManager l("musicLib");
-	l.createLibrary();
 
+	LibraryManager l("musicLib");
+	//l.createLibrary();
+	l.openLibrary();
+	l.addAlbum("TESt", "This is an album");
+	l.addArtist("TEST ART", "This is an artist very famous");
+	l.addArtist("ART 2", "This 2 is an artist very famous");
+	l.addArtist("ART 3", "This 3 is an artist very famous");
+	l.closeLibrary();
+	SqliteAdapter adapter;
+	adapter.openDatabase("musicLib");
+	adapter.executeSelect("Select name, details from Artist;");
+	while (adapter.fetchRow()==SUCCESS){
+		string name;
+		string details;
+		name = adapter.getStr();
+		details = adapter.getStr();
+		cout<<"Name "<<name<<"Details "<<details<<endl;
+	}
+	adapter.freeResult();
+	adapter.executeSelect("Select name, details from Album;");
+	while (adapter.fetchRow()==SUCCESS){
+		string name;
+		string details;
+		name = adapter.getStr();
+		details = adapter.getStr();
+		cout<<"Name ALBUM"<<name<<"Details "<<details<<endl;
+	}
+	adapter.freeResult();
 
 /*
 	adapter.openDatabase("test.db");

@@ -78,16 +78,6 @@ class DatabaseCreate{
 				FOREIGN KEY(id_genre) REFERENCES Genre(id),\
 				FOREIGN KEY(id_song)  REFERENCES Song(id));";
 		}
-
-		inline static string createDatabase(){
-			return "CREATE DATABASE MUSIC_LIBRARY;";
-		}
-
-		inline static string useDatabase(){
-			return "USE MUSIC_LIBRARY";
-		}
-
-
 };
 
 #endif

@@ -27,7 +27,11 @@ class LibraryManager{
 		int addArtist(string name, string details="");
 		int addAlbum(string name, string details="");
 		int addGenre(string name, string details="");
-		int addSong(string title, int duration, string artist="");
+		int addSong(string title, string duration, string details);
+		int addAuthor(string id_artist, string id_song, string year);
+		int addComposed(string id_artist, string id_album, string year);
+		int addIsIn(string id_album, string id_song, string track);
+		int addGot(string id_genre, string id_song);
 
 	private:
 		string libname;
