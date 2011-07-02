@@ -21,10 +21,28 @@ using namespace std;
 
 class Pattern{
 	public:
+		/**
+		 * @brief Pattern constructor 
+		 * @param	pattern a string representing the pattern
+		 * 			ie: ART\#TIT\#ALB
+		 */
 		Pattern(string pattern);
 		~Pattern();
+		/**
+		 * @brief Parse the pattern
+		 * @return #SUCCESS if succeeded, #FAILURE otherwise
+		 *
+		 */
 		int parse();
+		/**
+		 * @brief get the next pattern
+		 * @param token a pointer to a string where the next token will be stored
+		 * @return SUCCESS is succeded, FAILURE otherwise
+		 */
 		int next(string* token);
+		/**
+		 * @brief Restart the iterator at the beginning
+		 */
 		void reset();
 	private:
 		void tokenize(string str, string delimiters);

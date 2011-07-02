@@ -29,8 +29,23 @@ class Id3Rename{
 
 	public:
 		/* methods */
+		/**
+		 * @brief Constructor for the class
+		 * @param song the song to rename
+		 * @param pattern the pattern applied
+		 */
 		Id3Rename(string song, Pattern* pattern);
+
+		/**
+		 * @brief Destructor for the Id3Rename class 
+		 */
 		~Id3Rename();
+
+		/**
+		 * @brief applies the renaming to the song 
+		 * @return SUCCESS or FAILURE
+		 * @see defines/define.h
+		 */
 		int apply();
 	
 	private:
