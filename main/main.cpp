@@ -6,7 +6,7 @@
 #include <browser/tbrowser.h>
 #include <sqladapter/sqliteadapter.h>
 #include <logger/errorlogger.h>
-#include <library/libraryManager.h>
+#include <library/librarymanager.h>
 
 #include <set>
 #include <iostream>

@@ -16,7 +16,9 @@
 #include <logger/errorlogger.h>
 #include <sys/types.h> 
 #include <sys/stat.h>  
-#include <dirent.h>    
+#include <dirent.h>
+#include <string.h>
+#include <stdlib.h>
 #include <iostream>
 using namespace std;
 
