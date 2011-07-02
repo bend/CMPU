@@ -1,6 +1,6 @@
 CFLAGS+=-W -Wall -Werror -pedantic -I.
 LDFLAGS+=-lid3 -lsqlite3 -I.
-EXEC=id3Rename
+EXEC=cmpu
 
 SOURCES=$(wildcard *.cpp)
 SOURCES+=$(wildcard sqladapter/*.cpp)
