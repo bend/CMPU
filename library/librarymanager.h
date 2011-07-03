@@ -32,6 +32,7 @@ class LibraryManager{
 		int addComposed(string id_artist, string id_album, string year);
 		int addIsIn(string id_album, string id_song, string track);
 		int addGot(string id_genre, string id_song);
+		int getLastInsertedId();
 
 	private:
 		string libname;

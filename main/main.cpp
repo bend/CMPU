@@ -1,5 +1,5 @@
 #include <id3tool/id3renamer.h>
-#include <id3tool/pattern.h>
+#include <utils/pattern.h>
 #include <defines/defines.h>
 #include <defines/error.h>
 #include <browser/rbrowser.h>
@@ -53,7 +53,6 @@ int main(int argc, char** argv){
 	}
 	adapter.freeResult();
 
-/*
 	adapter.openDatabase("test.db");
 	string q ="create table t1 (t1key INTEGER PRIMARY KEY,data TEXT,num double,data2 TEXT);";
 	adapter.executeQuery(q);
@@ -63,7 +62,7 @@ int main(int argc, char** argv){
 	adapter.executeQuery(q);
 	q="select data,num,data2 from t1;";
 	adapter.executeSelect(q);
-	while (adapter.fetch_row()==SUCCESS){
+	while (adapter.fetchRow()==SUCCESS){
 		string name;
 		string name2;
 		name = adapter.getStr();
@@ -72,7 +71,6 @@ int main(int argc, char** argv){
 		cout<<"User#"<<num<<" : "<<name.c_str()<<" : "<<name2.c_str()<<endl;
 	}
 	adapter.closeDatabase();
-	*/
 
 	cout<<argv[0]<<endl;
 

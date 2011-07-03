@@ -8,8 +8,9 @@ SOURCES+=$(wildcard browser/*.cpp)
 SOURCES+=$(wildcard library/*.cpp)
 SOURCES+=$(wildcard id3tool/*.cpp)
 SOURCES+=$(wildcard defines/*.cpp)
-SOURCES+=$(wildcard main/*.cpp)
 SOURCES+=$(wildcard logger/*.cpp)
+SOURCES+=$(wildcard utils/*.cpp)
+SOURCES+=$(wildcard main/*.cpp)
 
 
 OBJECTS=$(SOURCES:.cpp=.o)
@@ -31,7 +32,8 @@ $(EXEC): $(OBJECTS)
 .PHONY: clean mrproper
 
 clean:
-	@find . -name *.o -exec rm -f {} \;
+	@find . -name '*.o' -exec rm -f {} \;
 
 mrproper:
 	@rm -f $(EXEC)
+	@rm -f *.db

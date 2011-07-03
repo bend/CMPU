@@ -14,7 +14,7 @@
 #define _ID3TAGGER_H_
 #include <defines/defines.h>
 #include <logger/errorlogger.h>
-#include <id3tool/pattern.h>
+#include <utils/pattern.h>
 #include <id3/tag.h>
 #include <iostream>
 using namespace std;

@@ -14,7 +14,7 @@
 #define _RBROWSER_H_
 #include <browser/browser.h>
 #include <id3tool/id3renamer.h>
-#include <id3tool/pattern.h>
+#include <utils/pattern.h>
 
 #include <iostream>
 #include <set>

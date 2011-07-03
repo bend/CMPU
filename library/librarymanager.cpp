@@ -82,3 +82,6 @@ int LibraryManager::addGot(string id_genre, string id_song){
 	return adapter->executeQuery(DatabaseQuery::addGot(id_genre, id_song));
 }
 
+int LibraryManager::getLastInsertedId(){
+	return adapter->getLastInsertedId();
+}

@@ -37,6 +37,7 @@ class SqliteAdapter:public SqlAdapter{
 		long getVal(const string& x);
 		long getVal();
 		long getVal(int x);
+		virtual int getLastInsertedId();
 	private:
 		int readFile(string path, string* returnVal);
 

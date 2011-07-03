@@ -165,3 +165,7 @@ long SqliteAdapter::getVal(){
 	return getVal(rowcount++);
 }
 
+
+int SqliteAdapter::getLastInsertedId(){
+	return sqlite3_last_insert_rowid(this->db);
+}

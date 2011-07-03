@@ -31,6 +31,7 @@ class SqlAdapter{
 		virtual long getVal(const string& x) = 0;
 		virtual long getVal() = 0;
 		virtual long getVal(int x) = 0;
+		virtual int getLastInsertedId() = 0;
 };
 
 #endif
