@@ -2,7 +2,7 @@
  *
  *       @file  testlibrary.h
  *
- *      @brief  
+ *      @brief 	Testing class for LibraryManager
  *
  *    @version  1.0
  *       @date  03.07.2011 10:05:11
@@ -21,7 +21,11 @@ using namespace std;
 #include <library/librarymanager.h>
 #include <defines/defines.h>
 #include <utils/utils.h>
-#define DB "test.db"
-void testLibrary();
+
+class TestLibrary:public LibraryManager{
+
+	public:
+		TestLibrary(string lib);
+};
 
 #endif

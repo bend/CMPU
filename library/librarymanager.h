@@ -18,7 +18,7 @@
 #include <defines/databasequery.h>
 
 class LibraryManager{
-	public:
+	protected:
 		LibraryManager(string libName);
 		int createLibrary();
 		int openLibrary();

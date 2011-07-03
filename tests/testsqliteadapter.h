@@ -15,9 +15,7 @@
 
 #include <sqladapter/sqliteadapter.h>
 #include <defines/defines.h>
-
 #include <assert.h>
-
 #include <iostream>
 using namespace std;
 

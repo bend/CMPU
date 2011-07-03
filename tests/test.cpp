@@ -14,8 +14,9 @@
 #include <tests/testsqliteadapter.h>
 #include <iostream>
 using namespace std;
+#define TEST_LIB "lib.db"
 int main(){
-	testLibrary();
+	TestLibrary l(TEST_LIB);
 	testSqliteAdapter();
 	cout<<"All tests Succeded"<<endl;
 }

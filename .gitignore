@@ -6,3 +6,6 @@ Id3Rename
 cmpu
 *.o
 log.dat
+*.db
+.DS_Store
+test

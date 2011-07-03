@@ -24,7 +24,7 @@ int main(int argc, char** argv){
 	t.browse();
 	*/
 
-	LibraryManager l("musicLib");
+	/*LibraryManager l("musicLib");
 	//l.createLibrary();
 	l.openLibrary();
 	l.addAlbum("TESt", "This is an album");
@@ -71,7 +71,7 @@ int main(int argc, char** argv){
 		cout<<"User#"<<num<<" : "<<name.c_str()<<" : "<<name2.c_str()<<endl;
 	}
 	adapter.closeDatabase();
-
+	*/	
 	cout<<argv[0]<<endl;
 
 
