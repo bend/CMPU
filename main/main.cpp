@@ -1,7 +1,7 @@
 #include <id3tool/id3renamer.h>
 #include <utils/pattern.h>
 #include <defines/defines.h>
-#include <defines/error.h>
+#include <defines/logger.h>
 #include <browser/rbrowser.h>
 #include <browser/tbrowser.h>
 #include <sqladapter/sqliteadapter.h>

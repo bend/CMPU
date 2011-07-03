@@ -28,9 +28,9 @@ class DatabaseQuery{
 				('"+name+"','"+details+"')";
 		}
 
-		inline static string addSong(string name, string duration, string details){
-			return "INSERT INTO Song(title, duration,  details) VALUES\
-				('"+name+"','"+duration+"','"+details+"')";
+		inline static string addSong(string name, string duration, string path, string details){
+			return "INSERT INTO Song(title, duration, path, details) VALUES\
+				('"+name+"','"+duration+"','"+path+"','"+details+"')";
 		}
 
 		inline static string addAuthor(string id_artist, string id_song, string year){

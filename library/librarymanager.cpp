@@ -62,8 +62,8 @@ int LibraryManager::addGenre(string name, string details){
 	return adapter->executeQuery(DatabaseQuery::addGenre(name, details));
 }
 
-int LibraryManager::addSong(string name, string duration, string details){
-	return adapter->executeQuery(DatabaseQuery::addSong(name, duration ,details));
+int LibraryManager::addSong(string name, string duration, string path, string details){
+	return adapter->executeQuery(DatabaseQuery::addSong(name, duration, path, details));
 }
 
 int LibraryManager::addAuthor(string id_artist, string id_song, string year){

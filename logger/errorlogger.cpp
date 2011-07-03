@@ -17,7 +17,7 @@ ErrorLogger *ErrorLogger::singleton = NULL;
 ofstream ErrorLogger::fout;
 
 ErrorLogger::ErrorLogger(){
-	 fout.open(LOG_PATH,ios::app);
+	 fout.open(ERROR_LOG_PATH,ios::app);
 }
 
 void ErrorLogger::log(string message,string var1){

@@ -40,6 +40,7 @@ class DatabaseCreate{
 				id		 INTEGER PRIMARY KEY,\
 				title	 TEXT NOT NULL,\
 				duration INTEGER NOT NULL,\
+				path	 TEXT NOT NULL,\
 				details  TEXT);";
 		}
 

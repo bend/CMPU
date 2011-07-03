@@ -37,9 +37,9 @@ void testLibrary(){
 	int id7 = l.getLastInsertedId();
 
 	/* Add songs */
-	assert(l.addSong("Song1", "det1","2010") == SUCCESS);
+	assert(l.addSong("Song1", "det1","/thesong.mp3","2010") == SUCCESS);
 	int id8 = l.getLastInsertedId();
-	assert(l.addSong("Song2", "det2","2010") == SUCCESS);
+	assert(l.addSong("Song2", "det2","/thesong2.mp3","2010") == SUCCESS);
 	int id9 = l.getLastInsertedId();
 
 	/* Add Authors */

@@ -13,7 +13,7 @@
 
 #ifndef _ERROR_LOGGER_H_
 #define _ERROR_LOGGER_H_
-#include <defines/error.h>
+#include <defines/logger.h>
 #include <stdlib.h>
 #include <iostream>
 #include <fstream>
