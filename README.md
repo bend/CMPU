@@ -7,7 +7,7 @@
 ###TODO:
 
 - Add duplicate detector
-- Add classify feature 
+- Add classify feature
 - ...
 
 ###Player
@@ -17,8 +17,8 @@
 - Index library
 - rearrange library
 - create a playlist
-- Modifie song info 
+- Modifie song info
 - Display time ...
-- Volume up/down
+- Volume up / down
 - Equalizer
 - ...

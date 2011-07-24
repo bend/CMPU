@@ -22,10 +22,10 @@ using namespace std;
 #include <defines/defines.h>
 #include <utils/utils.h>
 
-class TestLibrary:public LibraryManager{
+class TestLibrary: public LibraryManager {
 
-	public:
-		TestLibrary(string lib);
+public:
+    TestLibrary(string lib);
 };
 
 #endif

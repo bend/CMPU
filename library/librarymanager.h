@@ -17,26 +17,26 @@
 #include <defines/databasecreate.h>
 #include <defines/databasequery.h>
 
-class LibraryManager{
-	protected:
-		LibraryManager(string libName);
-		int createLibrary();
-		int openLibrary();
-		void closeLibrary();
+class LibraryManager {
+protected:
+    LibraryManager(string libName);
+    int createLibrary();
+    int openLibrary();
+    void closeLibrary();
 
-		int addArtist(string name, string details="");
-		int addAlbum(string name, string details="");
-		int addGenre(string name, string details="");
-		int addSong(string title, string duration, string path, string details);
-		int addAuthor(string id_artist, string id_song, string year);
-		int addComposed(string id_artist, string id_album, string year);
-		int addIsIn(string id_album, string id_song, string track);
-		int addGot(string id_genre, string id_song);
-		int getLastInsertedId();
+    int addArtist(string name, string details = "");
+    int addAlbum(string name, string details = "");
+    int addGenre(string name, string details = "");
+    int addSong(string title, string duration, string path, string details);
+    int addAuthor(string id_artist, string id_song, string year);
+    int addComposed(string id_artist, string id_album, string year);
+    int addIsIn(string id_album, string id_song, string track);
+    int addGot(string id_genre, string id_song);
+    int getLastInsertedId();
 
-	private:
-		string libname;
-		SqliteAdapter *adapter;
+private:
+    string libname;
+    SqliteAdapter *adapter;
 
 
 

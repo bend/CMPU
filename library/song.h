@@ -17,27 +17,27 @@
 #include <map>
 using namespace std;
 
-class Song{
-	public:
-	   	Song(string title, int id, string path, map<string, int> artists, string album="", string genre="", string year="", string	duration="");
-	   	Song(string title, int id, string path, string album="", string genre="", string year="", string	duration="");
-		Song();
-		int setTitle(string title);
-		int addArtist(string artist);
-		int setAlbum(string album);
-		int setGenre(string genre);
-		int setYear(string year);
-		int setDuration(string duration);
-		int setPath(string path);
-	private:
-		string title;
-		int id;
-		string path;
-		map<string,int> artist;
-		string album;
-		string genre;
-		string year;
-		string duration;
+class Song {
+public:
+    Song(string title, int id, string path, map<string, int> artists, string album = "", string genre = "", string year = "", string	duration = "");
+    Song(string title, int id, string path, string album = "", string genre = "", string year = "", string	duration = "");
+    Song();
+    int setTitle(string title);
+    int addArtist(string artist);
+    int setAlbum(string album);
+    int setGenre(string genre);
+    int setYear(string year);
+    int setDuration(string duration);
+    int setPath(string path);
+private:
+    string title;
+    int id;
+    string path;
+    map<string, int> artist;
+    string album;
+    string genre;
+    string year;
+    string duration;
 };
 
 #endif

@@ -12,10 +12,10 @@
  */
 #include <utils/utils.h>
 
-string toString(int i){
-	string s;
-	stringstream out;
-	out << i;
-	s = out.str();
-	return s;
+string toString(int i) {
+    string s;
+    stringstream out;
+    out << i;
+    s = out.str();
+    return s;
 }

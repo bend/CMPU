@@ -16,21 +16,23 @@
 EventLogger *EventLogger::singleton = NULL;
 ofstream EventLogger::fout;
 
-EventLogger::EventLogger(){
-	 fout.open(EVENT_LOG_PATH,ios::app);
+EventLogger::EventLogger() {
+    fout.open(EVENT_LOG_PATH, ios::app);
 }
 
-void EventLogger::log(string message,string var1){
-	if(singleton == NULL)
-		singleton = new EventLogger;
-	fout<<message<<var1<<endl;
+void EventLogger::log(string message, string var1) {
+    if(singleton == NULL)
+        singleton = new EventLogger;
+
+    fout << message << var1 << endl;
 }
 
-void EventLogger::close(){
-	fout.close();
-	if(singleton != NULL){
-		delete singleton;
-		singleton = NULL;
-	}
+void EventLogger::close() {
+    fout.close();
+
+    if(singleton != NULL) {
+        delete singleton;
+        singleton = NULL;
+    }
 }
 

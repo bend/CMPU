@@ -2,7 +2,7 @@
  *
  *       @file  test.cpp
  *
- *      @brief  
+ *      @brief
  *
  *    @version  1.0
  *       @date  03.07.2011 10:03:57
@@ -15,8 +15,8 @@
 #include <iostream>
 using namespace std;
 #define TEST_LIB "lib.db"
-int main(){
-	TestLibrary l(TEST_LIB);
-	testSqliteAdapter();
-	cout<<"All tests Succeded"<<endl;
+int main() {
+    TestLibrary l(TEST_LIB);
+    testSqliteAdapter();
+    cout << "All tests Succeded" << endl;
 }

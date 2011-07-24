@@ -2,7 +2,7 @@
  *
  *       @file  tbrowser.h
  *
- *      @brief  
+ *      @brief
  *
  *    @version  1.0
  *       @date  15.06.2011 16:02:58
@@ -19,14 +19,14 @@
 #include <iostream>
 #include <set>
 using namespace std;
-class TBrowser: public Browser{
-	public:
-		TBrowser(string test, Pattern *pattern, set<string> *vect );
-		~TBrowser();
-	private:
-		virtual int apply(string str);
-		set<string> *ext;
-		Pattern *pattern;
+class TBrowser: public Browser {
+public:
+    TBrowser(string test, Pattern *pattern, set<string> *vect );
+    ~TBrowser();
+private:
+    virtual int apply(string str);
+    set<string> *ext;
+    Pattern *pattern;
 
 };
 

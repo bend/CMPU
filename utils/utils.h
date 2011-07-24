@@ -18,9 +18,9 @@
 using namespace std;
 
 /**
- * @brief Converts an int to a string 
+ * @brief Converts an int to a string
  * @param i the integer to convert
- * @return the converted int to string 
+ * @return the converted int to string
  */
 string toString(int i);
 

@@ -19,16 +19,16 @@
 #include <fstream>
 #include <execinfo.h>
 using namespace std;
-class ErrorLogger{
-	public:
-		static void log( string, string var1="");
-		static void  close();
-	private:
-		static ErrorLogger *singleton;
-		static ofstream fout; 
-		static void logBackTrace();
-	protected:
-		ErrorLogger();
+class ErrorLogger {
+public:
+    static void log( string, string var1 = "");
+    static void  close();
+private:
+    static ErrorLogger *singleton;
+    static ofstream fout;
+    static void logBackTrace();
+protected:
+    ErrorLogger();
 
 
 

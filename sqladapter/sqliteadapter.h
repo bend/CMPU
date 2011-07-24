@@ -22,35 +22,35 @@
 #include <fstream>
 using namespace std;
 
-class SqliteAdapter:public SqlAdapter{
-	public:
-		SqliteAdapter();
-		~SqliteAdapter();
-		int openDatabase(string databaseName); 
-		void closeDatabase();
-		int executeQuery(string query);
-		int executeSelect(string query);
-		int fetchRow();
-		void freeResult();
-		const char* getStr(int x);
-		const char* getStr();
-		long getVal(const string& x);
-		long getVal();
-		long getVal(int x);
-		virtual int getLastInsertedId();
-	private:
-		int readFile(string path, string* returnVal);
+class SqliteAdapter: public SqlAdapter {
+public:
+    SqliteAdapter();
+    ~SqliteAdapter();
+    int openDatabase(string databaseName);
+    void closeDatabase();
+    int executeQuery(string query);
+    int executeSelect(string query);
+    int fetchRow();
+    void freeResult();
+    const char* getStr(int x);
+    const char* getStr();
+    long getVal(const string& x);
+    long getVal();
+    long getVal(int x);
+    virtual int getLastInsertedId();
+private:
+    int readFile(string path, string* returnVal);
 
-		sqlite3 *db;
-		sqlite3_stmt *res;
-		map<string,int> m_nmap;
-		string m_tmpstr;
-		string m_last_query;
-		int m_num_cols;
-		int rowcount;
-		int cache_rc;
-		int m_row_count; 
-		bool row;
-		bool cache_rc_valid;
+    sqlite3 *db;
+    sqlite3_stmt *res;
+    map<string, int> m_nmap;
+    string m_tmpstr;
+    string m_last_query;
+    int m_num_cols;
+    int rowcount;
+    int cache_rc;
+    int m_row_count;
+    bool row;
+    bool cache_rc_valid;
 };
 #endif

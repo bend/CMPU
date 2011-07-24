@@ -19,15 +19,15 @@
 #include <fstream>
 #include <execinfo.h>
 using namespace std;
-class EventLogger{
-	public:
-		static void log( string, string var1="");
-		static void  close();
-	private:
-		static EventLogger *singleton;
-		static ofstream fout; 
-	protected:
-		EventLogger();
+class EventLogger {
+public:
+    static void log( string, string var1 = "");
+    static void  close();
+private:
+    static EventLogger *singleton;
+    static ofstream fout;
+protected:
+    EventLogger();
 
 
 

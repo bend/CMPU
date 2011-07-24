@@ -14,40 +14,43 @@
 
 #include <utils/pattern.h>
 
-Pattern::Pattern(string pattern){
-	this->pattern = pattern;
+Pattern::Pattern(string pattern) {
+    this->pattern = pattern;
 }
 
-Pattern::~Pattern(){}
+Pattern::~Pattern() {}
 
-int Pattern::parse(){
-	string delim(SEPARATOR);
-	if(this->pattern.length() == 0){
-		ErrorLogger::log("Error:Invalid pattern");
-		return FAILURE;
-	}
-	tokenize(this->pattern, delim);
-	it = tokens.begin();
-	return SUCCESS;
+int Pattern::parse() {
+    string delim(SEPARATOR);
+
+    if(this->pattern.length() == 0) {
+        ErrorLogger::log("Error:Invalid pattern");
+        return FAILURE;
+    }
+
+    tokenize(this->pattern, delim);
+    it = tokens.begin();
+    return SUCCESS;
 }
 
-int Pattern::next(string *token){
-	if(it==tokens.end())
-		return EMPTY;
-	*token = *it;
-	++it;
-	return SUCCESS;
+int Pattern::next(string *token) {
+    if(it == tokens.end())
+        return EMPTY;
+
+    *token = *it;
+    ++it;
+    return SUCCESS;
 }
 
-void Pattern::reset(){
-	it = tokens.begin();
+void Pattern::reset() {
+    it = tokens.begin();
 }
 
-void Pattern::tokenize(string str, string delimiters ){
+void Pattern::tokenize(string str, string delimiters ) {
     string::size_type lastPos = str.find_first_not_of(delimiters, 0);
     string::size_type pos     = str.find_first_of(delimiters, lastPos);
-    while (string::npos != pos || string::npos != lastPos)
-    {
+
+    while (string::npos != pos || string::npos != lastPos) {
         tokens.push_back(str.substr(lastPos, pos - lastPos));
         lastPos = str.find_first_not_of(delimiters, pos);
         pos = str.find_first_of(delimiters, lastPos);

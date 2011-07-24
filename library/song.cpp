@@ -13,26 +13,26 @@
 
 #include <library/song.h>
 
-Song::Song(string title, int id, string path, map<string, int> artist, string album, string genre, string year, string duration){
-	this->title = title;
-	this->id = id;
-	this->path = path;
-	this->artist = artist;
-	this->album = album;
-	this->genre = genre;
-	this->year = year;
-	this->duration = duration;
+Song::Song(string title, int id, string path, map<string, int> artist, string album, string genre, string year, string duration) {
+    this->title = title;
+    this->id = id;
+    this->path = path;
+    this->artist = artist;
+    this->album = album;
+    this->genre = genre;
+    this->year = year;
+    this->duration = duration;
 }
 
-Song::Song(string title, int id, string path, string album, string genre, string year, string duration){
-	this->title = title;
-	this->id = id;
-	this->path = path;
-	this->album = album;
-	this->genre = genre;
-	this->year = year;
-	this->duration = duration;
+Song::Song(string title, int id, string path, string album, string genre, string year, string duration) {
+    this->title = title;
+    this->id = id;
+    this->path = path;
+    this->album = album;
+    this->genre = genre;
+    this->year = year;
+    this->duration = duration;
 }
 
-Song::Song(){}
+Song::Song() {}
 

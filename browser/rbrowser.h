@@ -2,7 +2,7 @@
  *
  *       @file  test.h
  *
- *      @brief  
+ *      @brief
  *
  *    @version  1.0
  *       @date  15.06.2011 16:02:58
@@ -19,14 +19,14 @@
 #include <iostream>
 #include <set>
 using namespace std;
-class RBrowser: public Browser{
-	public:
-		RBrowser(string test, Pattern* pattern, set<string> *vect);
-		~RBrowser();
-	private:
-		virtual int apply(string str);
-		Pattern* pattern;
-		set<string> *ext;
+class RBrowser: public Browser {
+public:
+    RBrowser(string test, Pattern* pattern, set<string> *vect);
+    ~RBrowser();
+private:
+    virtual int apply(string str);
+    Pattern* pattern;
+    set<string> *ext;
 
 };
 

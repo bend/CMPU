@@ -3,7 +3,7 @@
  *       @file  librarywrapper.h
  *
  *      @brief  A wrapper to the library hidding insertion difficulties
- *      		It automatically creates an author, genre, ... 
+ *      		It automatically creates an author, genre, ...
  *      		if not already existing in the library
  *
  *    @version  1.0

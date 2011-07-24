@@ -2,7 +2,7 @@
  *
  *       @file  testsqliteadapter.h
  *
- *      @brief  
+ *      @brief
  *
  *    @version  1.0
  *       @date  03.07.2011 10:08:55
