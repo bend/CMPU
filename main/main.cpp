@@ -15,15 +15,12 @@ int main(int argc, char** argv) {
     if(argc < 2)
         return 0;
 
-    /*
-    Pattern p("ART#Benoit#ALB#My Album");
+    Pattern p("ART#Scorpions");
     set<string> v;
     v.insert("mp3");
     p.parse();
-
-    TBrowser t(argv[1],&p, &v);
+    TBrowser t(argv[1], &p, &v);
     t.browse();
-    */
     /*LibraryManager l("musicLib");
     //l.createLibrary();
     l.openLibrary();
